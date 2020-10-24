@@ -1,0 +1,303 @@
+<profile name="Demo-features-mx" version="LATEST">
+  <!-- 
+			Pattern rule appliance by priority :
+			1 - stack_size_interest (1003)
+			2 - exclude_thread_name (1002)
+			3 - exclude (1001)
+			4 - function  (6)
+			5 - function_discovery  (5)
+			6 - executor  (4)
+			7 - executor_thread_name (3)
+			8 - operation (2)
+			9 - operation_discovery (1)
+			Exclude, function, operation and executor patterns priorities can be overriden by pattern attribute.
+	 	-->
+  <patterns>
+    <!-- Discovery functions are loaded only if discovery mode is enabled (cf. discovery_mode) -->
+    <discovery_functions>
+      <!-- pattern is a list of keywords, comma separated. Each keyword will issue one discovery rule -->
+      <!-- pattern_regex is optional. Focus can be : method, class, both -->
+      <discovery_function focus="both" pattern="${JEYZER_ANALYZER_DISCOVERY_FUNCTIONS_1}"/>
+      <discovery_function focus="both" pattern="${JEYZER_ANALYZER_DISCOVERY_FUNCTIONS_2}"/>
+      <discovery_function focus="both" pattern="${JEYZER_ANALYZER_DISCOVERY_FUNCTIONS_3}"/>
+      <discovery_function focus="both" pattern="${JEYZER_ANALYZER_DISCOVERY_FUNCTIONS_4}"/>
+      <discovery_function focus="both" pattern="${JEYZER_ANALYZER_DISCOVERY_FUNCTIONS_5}"/>
+    </discovery_functions>
+    <!-- In pattern attribute, use semicolon separator to declare multiple line patterns -->
+    <functions>
+      <!-- Features demo -->
+      <function name="Plays ping (blue)" pattern="features.tasks.PingPongPlayer.doPing"/>
+      <function name="Plays pong (green)" pattern="features.tasks.PingPongPlayer.doPong"/>
+      <function name="Long running tennis player" pattern="features.mx.jeyzer.LongTennisPlayer.longRunningTask"/>
+      <function name="Run left" pattern="features.mx.jeyzer.LongTennisPlayer.runLeft"/>
+      <function name="Run right" pattern="features.mx.jeyzer.LongTennisPlayer.runRight"/>
+      <function name="Run middle" pattern="features.mx.jeyzer.LongTennisPlayer.runMiddle"/>
+      <!--
+				<function pattern="features.mx.generic.volley.VolleyBallPlayer.set"  name="Volley set"/>
+				<function pattern="features.mx.generic.volley.VolleyBallPlayer.serve"  name="Volley serve"/>
+				<function pattern="features.mx.generic.volley.VolleyBallPlayer.pass"  name="Volley pass"/>
+				<function pattern="features.mx.generic.volley.VolleyBallPlayer.attack"  name="Volley attack"/>
+				-->
+      <function name="Frozen code section : stacks are identical" pattern="features.tasks.FrozenCode.frozenCode"/>
+      <function name="Out Of Memory thread" pattern="features.tasks.MemoryExhaustingTask.exhaustMemory"/>
+      <function name="Memory consuming thread" pattern="features.tasks.MemoryConsumingTask.consumeMemory"/>
+      <function name="CPU consuming thread" pattern="features.tasks.CPUConsumingTask.consumeCPU"/>
+      <function name="Dysfunctional code sequence" pattern="features.tasks.DysfunctionalCodeSequence.dysfunctionalCode2;DysfunctionalCodeSequence.dysfunctionalCode1"/>
+      <function name="Hiatus detected right after this cell : threads dumps were not generated" pattern="features.tasks.HiatusStart.hiatusStart"/>
+      <function name="Hiatus detected right before this cell" pattern="features.tasks.HiatusEnd.hiatusEnd"/>
+      <function name="Thread owning the synchronized lock section" pattern="features.tasks.LockedThreads.executedLockedAction" priority="900"/>
+      <function name="Thread waiting for the synchronized lock to be released" pattern="features.tasks.LockedThreads.executedActionLevel2"/>
+      <function name="Thread in deadlock" pattern="features.tasks.Deadlock.accessSharedResources"/>
+      <function name="Waiting before ExecutorService forceShutdown" pattern="features.tasks.Deadlock.waitBeforeShutdown"/>
+      <function name="Undesired thread execution" pattern="org.jeyzer.demo.labors.job.executable.impl.UniqueThreadJob$SubUniqueThreadJob.undesiredThreadExecution"/>
+      <function name="Create undesired thread" pattern="org.jeyzer.demo.labors.job.executable.impl.UniqueThreadJob.createUndesiredThread"/>
+      <function name="Risky section" pattern="org.jeyzer.demo.labors.job.executable.impl.SessionExecutionPatternJob.riskySection"/>
+      <function name="Store messsage" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeParallelContentionJob.storeMesssage"/>
+      <function name="Store in database" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeParallelContentionJob.storeInDatabase"/>
+      <function name="Disable applicative event publishing" pattern="org.jeyzer.demo.labors.job.executable.impl.JeyzerPublisherEventJob.disableApplicativeEventPublishing"/>
+      <function name="Trigger unsecured method" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPresenceJob.triggerUnsecuredMethod"/>
+      <function name="Active thread" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveThreadLimitJob$SubActiveThreadLimit.activeThread"/>
+      <function name="Create active threads" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveThreadLimitJob.createActiveThreads"/>
+      <function name="Raise applicative task oneshot event" pattern="org.jeyzer.demo.labors.job.executable.impl.ApplicativeTaskOneshotEventJob.raiseApplicativeTaskOneshotEvent"/>
+      <function name="CPU consuming section : please look at CPU panel for more details" pattern="org.jeyzer.demo.features.tasks.CPUConsumingTask.consumeCPU"/>
+      <function name="Receive payload" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeGlobalPercentageJob.receivePayload"/>
+      <function name="Fly lower" pattern="org.jeyzer.demo.labors.job.executable.impl.MxBeanParameterNumberLowerJob.flyLower"/>
+      <function name="Memory consumer" pattern="org.jeyzer.demo.labors.job.executable.impl.ExcessiveGcTimeJob.consumeMemory"/>
+      <function name="Fly with failure" pattern="org.jeyzer.demo.labors.job.executable.impl.MxBeanParameterPatternJob.flyWithFailure"/>
+      <function name="Store message" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionAndOperationParallelContentionJob.storeMessage"/>
+      <function name="Jdbc connection pool access" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionAndOperationParallelContentionJob.jdbcConnectionPoolAccess"/>
+      <function name="Consume c p u" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuRunnableVsCpuCapacityJob$SubCpuRunnableVsCpuCapacityJob.consumeCPU"/>
+      <function name="Create cpu consuming threads" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuRunnableVsCpuCapacityJob.createCpuConsumingThreads"/>
+      <function name="Publish activity error count" pattern="org.jeyzer.demo.labors.job.executable.impl.TaskJeyzerMxContextParameterNumberJob.publishActivityErrorCount"/>
+      <function name="Memory consumer" pattern="org.jeyzer.demo.labors.job.executable.impl.MemoryConsumingProcessJob.consumeMemory"/>
+      <function name="Long running activity" pattern="org.jeyzer.demo.labors.job.executable.impl.LongRunningTaskJob.longRunningActivity"/>
+      <function name="Process payload" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationGlobalPercentageJob.processPayload"/>
+      <function name="Memory exhausting section : please look at GC, CPU and Memory panels for more details" pattern="org.jeyzer.demo.features.tasks.MemoryExhaustingTask.exhaustMemory"/>
+      <function name="Create threads" pattern="org.jeyzer.demo.labors.job.executable.impl.GlobalThreadLimitJob.createThreads"/>
+      <function name="Activity xyz" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionPatternWithPercentageJob.activityXyz"/>
+      <function name="Preprocess" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionPatternWithPercentageJob.preprocess"/>
+      <function name="Process" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionPatternWithPercentageJob.process"/>
+      <function name="Postprocess" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionPatternWithPercentageJob.postprocess"/>
+      <function name="Execute purchase" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeInPrincipalPercentageJob.executePurchase"/>
+      <function name="Timer action" pattern="org.jeyzer.demo.labors.job.executable.impl.NamedThreadLeakJob$NamedThreadLeakTimer.timerAction"/>
+      <function name="Create timers" pattern="org.jeyzer.demo.labors.job.executable.impl.NamedThreadLeakJob.createTimers"/>
+      <function name="Execute database action" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationParallelContentionJob.executeDatabaseAction"/>
+      <function name="Memory exhausting" pattern="org.jeyzer.demo.labors.job.executable.impl.GcFailingToReleaseMemoryJob.exhaustMemory"/>
+      <function name="Memory consumer" pattern="org.jeyzer.demo.labors.job.executable.impl.MemoryConsumingTaskJob.consumeMemory"/>
+      <function name="Risky section" pattern="org.jeyzer.demo.labors.job.executable.impl.TaskExecutionPatternJob.riskySection"/>
+      <function name="Process big data" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationInPrincipalPercentageJob.processBigData"/>
+      <function name="Perform" pattern="org.jeyzer.demo.labors.job.DummyJob.perform"/>
+      <function name="Analyze" pattern="org.jeyzer.demo.labors.job.DummyJob.analyze"/>
+      <function name="Focus" pattern="org.jeyzer.demo.labors.job.DummyJob.focus"/>
+      <function name="PingPongReferee instantiation" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer$PingPongReferee.&lt;init&gt;"/>
+      <function name="Watch" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer$PingPongReferee.watch"/>
+      <function name="Get name" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer.getName"/>
+      <function name="Consume cpu" pattern="org.jeyzer.demo.labors.job.executable.impl.SystemCpuOverloadJob$SubSystemCpuOverloadJob.consumeCpu"/>
+      <function name="Create cpu consuming threads" pattern="org.jeyzer.demo.labors.job.executable.impl.SystemCpuOverloadJob.createCpuConsumingThreads"/>
+      <function name="Recursive method" pattern="org.jeyzer.demo.labors.job.executable.impl.StackOverflowJob.recursiveMethod"/>
+      <function name="Publish high open resource value" pattern="org.jeyzer.demo.labors.job.executable.impl.JeyzerMxContextParameterNumberJob.publishHighOpenResourceValue"/>
+      <function name="Init module" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionPatternJob.initModule"/>
+      <function name="Do synchronized work" pattern="org.jeyzer.demo.labors.job.executable.impl.LockerTaskJob.doSynchronizedWork"/>
+      <function name="Work alone" pattern="org.jeyzer.demo.labors.job.executable.impl.LockerTaskJob.workAlone"/>
+      <function name="Handle client inactive connection" pattern="org.jeyzer.demo.labors.job.executable.impl.NamedThreadLimitJob$SubNamedThreadLimitJob.handleClientInactiveConnection"/>
+      <function name="Create inactive threads" pattern="org.jeyzer.demo.labors.job.executable.impl.NamedThreadLimitJob.createInactiveThreads"/>
+      <function name="Raise applicative system event" pattern="org.jeyzer.demo.labors.job.executable.impl.ApplicativeSystemEventJob.raiseApplicativeSystemEvent"/>
+      <function name="Process message pay load" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionGlobalPercentageJob.processMessagePayLoad"/>
+      <function name="Raise applicative session long event" pattern="org.jeyzer.demo.labors.job.executable.impl.ApplicativeSessionLongEventJob.raiseApplicativeSessionLongEvent"/>
+      <function name="Io exception handling" pattern="org.jeyzer.demo.labors.job.executable.impl.MultiFunctionContentionJob$SubMultiFunctionContention.ioExceptionHandling"/>
+      <function name="Stop connection in jmx" pattern="org.jeyzer.demo.labors.job.executable.impl.MultiFunctionContentionJob$SubMultiFunctionContention.stopConnectionInJmx"/>
+      <function name="Add connection" pattern="org.jeyzer.demo.labors.job.executable.impl.MultiFunctionContentionJob$SubMultiFunctionContention.addConnection"/>
+      <function name="Create failover threads" pattern="org.jeyzer.demo.labors.job.executable.impl.MultiFunctionContentionJob.createFailoverThreads"/>
+      <function name="Do random synchronized work" pattern="org.jeyzer.demo.labors.job.executable.impl.LocksContentionJob.doRandomSynchronizedWork"/>
+      <function name="Consume c p u" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuConsumingProcessJob$SubCpuConsumingProcessJob.consumeCPU"/>
+      <function name="Create cpu consuming threads" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuConsumingProcessJob.createCpuConsumingThreads"/>
+      <function name="Stuck call" pattern="org.jeyzer.demo.labors.job.executable.impl.FrozenStacksJob.stuckCall"/>
+      <function name="Memory consumer" pattern="org.jeyzer.demo.labors.job.executable.impl.ExcessiveOldGcExecutionJob.consumeMemory"/>
+      <function name="End of month processing" pattern="org.jeyzer.demo.labors.job.executable.impl.LongRunningTaskWithFunctionJob.endOfMonthProcessing"/>
+      <function name="Do critical work" pattern="org.jeyzer.demo.labors.job.executable.impl.AbsentThreadsJob$SubAbsentThreads.doCriticalWork"/>
+      <function name="Pause vital thread" pattern="org.jeyzer.demo.labors.job.executable.impl.AbsentThreadsJob.pauseVitalThread"/>
+      <function name="Create vital thread" pattern="org.jeyzer.demo.labors.job.executable.impl.AbsentThreadsJob.createVitalThread"/>
+      <function name="Call random operation" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypePatternJob.callRandomOperation"/>
+      <function name="Raise applicative task long event" pattern="org.jeyzer.demo.labors.job.executable.impl.ApplicativeTaskLongEventJob.raiseApplicativeTaskLongEvent"/>
+      <function name="Thread leaking action" pattern="org.jeyzer.demo.labors.job.executable.impl.GlobalThreadLeakJob$SubGlobalThreadLeak.threadLeakingAction"/>
+      <function name="Create global threads" pattern="org.jeyzer.demo.labors.job.executable.impl.GlobalThreadLeakJob.createGlobalThreads"/>
+      <function name="Process data" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternWithPercentageJob.processData"/>
+      <function name="Memory consuming section : please look at Memory panel for more details" pattern="org.jeyzer.demo.features.tasks.MemoryConsumingTask.consumeMemory"/>
+      <function name="Do nothing" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveNamedThreadLimitJob$SubActiveNamedThreadLimitWorker.doNothing"/>
+      <function name="Process work" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveNamedThreadLimitJob$SubActiveNamedThreadLimitWorker.processWork"/>
+      <function name="Activate worker threads" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveNamedThreadLimitJob.activateWorkerThreads"/>
+      <function name="Close gateway state" pattern="org.jeyzer.demo.labors.job.executable.impl.JeyzerMxContextParameterPatternJob.closeGatewayState"/>
+      <function name="Publish activity state" pattern="org.jeyzer.demo.labors.job.executable.impl.TaskJeyzerMxContextParameterPatternJob.publishActivityState"/>
+      <function name="Access shared resource" pattern="org.jeyzer.demo.labors.job.executable.impl.DeadlockJob$SubDeadlock.accessSharedResources"/>
+      <function name="Create deadlock" pattern="org.jeyzer.demo.labors.job.executable.impl.DeadlockJob.createDeadlock"/>
+      <function name="CPU consumer" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuConsumingTaskJob.consumeCPU"/>
+      <function name="Increase speed" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionInPrincipalPercentageJob.increaseSpeed"/>
+      <function name="Init secondary engine" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionInPrincipalPercentageJob.initSecondaryEngine"/>
+      <function name="Run secondary engine" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionInPrincipalPercentageJob.runSecondaryEngine"/>
+      <function name="Delay function" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternJob.delayFunction"/>
+      <function name="Deprecated function method" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionPresenceJob.deprecatedFunctionMethod"/>
+      <function name="Memory consumer" pattern="org.jeyzer.demo.labors.job.executable.impl.MemoryConsumingSystemJob.consumeMemory"/>
+      <function name="Specific fast critical section" pattern="org.jeyzer.demo.labors.job.executable.impl.FrozenStacksWithFunctionJob.specificFastCriticalSection"/>
+      <function name="Fail over" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveUniqueThreadJob$SubActiveUniqueThreadJob.failOver"/>
+      <function name="Create failover thread" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveUniqueThreadJob.createFailoverThread"/>
+      <function name="Send messsage" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionParallelContentionJob.sendMesssage"/>
+      <function name="Handle io exception" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionParallelContentionJob.handleIoException"/>
+      <function name="Raise applicative session oneshot event" pattern="org.jeyzer.demo.labors.job.executable.impl.ApplicativeSessionOneshotEventJob.raiseApplicativeSessionOneshotEvent"/>
+      <function name="Fly higher" pattern="org.jeyzer.demo.labors.job.executable.impl.MxBeanParameterNumberHigherJob.flyHigher"/>
+    </functions>
+    <discovery_operations>
+      <!-- pattern is a list of keywords, comma separated. Each keyword will issue one discovery rule -->
+      <!-- pattern_regex is optional. Focus can be : method, class, both -->
+      <discovery_operation focus="method" pattern="SharedResources" pattern_regex="org\.rwn\.jeyzer.*"/>
+    </discovery_operations>
+    <operations>
+      <!-- Operation patterns apply for the first 20 lines of the thread dump                	 -->
+      <!-- Exception : patterns ending with '.' apply for the first 2 lines of the thread dump -->
+      <!-- Features demo -->
+      <operation name="Memory creation : fill list with random long numbers" pattern="features.tasks.MemoryConsumingTask.consumeMemory"/>
+      <operation name="Memory creation : fill list with random long numbers" pattern="org.jeyzer.demo.features.tasks.MemoryExhaustingTask.exhaustMemory"/>
+      <operation name="CPU creation : do mathematical operations" pattern="features.tasks.CPUConsumingTask.consumeCPU"/>
+      <operation name="Method action level2 is synchronized" pattern="features.tasks.LockedThreads.executedActionLevel2"/>
+      <operation name="Access to already locked resource" pattern="features.tasks.Deadlock.accessSharedResources"/>
+      <operation name="Forehand shot" pattern="features.mx.jeyzer.LongTennisPlayer.forehandShot" type="Shot"/>
+      <operation name="Grip shot" pattern="features.mx.jeyzer.LongTennisPlayer.gripShot" type="Shot"/>
+      <operation name="Backhand shot" pattern="features.mx.jeyzer.LongTennisPlayer.backhandShot" type="Shot"/>
+      <operation name="Serve shot" pattern="features.mx.jeyzer.LongTennisPlayer.serveShot" type="Shot"/>
+      <operation name="Problematic section" pattern="org.jeyzer.demo.labors.job.executable.impl.SessionExecutionPatternJob.problematicSection"/>
+      <operation name="Oracle transaction commit" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeParallelContentionJob.oracleTransactionCommit" type="Oracle"/>
+      <operation name="Unsecured operation method" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPresenceJob.unsecuredOperationMethod"/>
+      <operation name="Wait for message payload reception" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeGlobalPercentageJob.waitForMessagePayloadReception" type="Waiting"/>
+      <operation name="Wait for pool resource" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionAndOperationParallelContentionJob.waitForPoolResource"/>
+      <operation name="Log message payload" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationGlobalPercentageJob.logMessagePayload"/>
+      <operation name="Mssql transaction commit" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeInPrincipalPercentageJob.mssqlTransactionCommit" type="MSSQL"/>
+      <operation name="Wait for prepared statement" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationParallelContentionJob.waitForPreparedStatement"/>
+      <operation name="Problematic section" pattern="org.jeyzer.demo.labors.job.executable.impl.TaskExecutionPatternJob.problematicSection"/>
+      <operation name="Read data" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationInPrincipalPercentageJob.readData"/>
+      <operation name="Permute data" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationInPrincipalPercentageJob.permuteData"/>
+      <operation name="Commit" pattern="org.jeyzer.demo.labors.job.DummyJob.commit"/>
+      <operation name="Compute" pattern="org.jeyzer.demo.labors.job.DummyJob.compute"/>
+      <operation name="Read" pattern="org.jeyzer.demo.labors.job.DummyJob.read"/>
+      <operation name="Scan" pattern="org.jeyzer.demo.labors.job.DummyJob.scan"/>
+      <operation name="Plays pong (green)" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer.doPong"/>
+      <operation name="Work alone" pattern="org.jeyzer.demo.labors.job.executable.impl.LocksContentionJob.workAlone"/>
+      <operation name="Fill list" pattern="org.jeyzer.demo.labors.job.executable.impl.ExcessiveOldGcExecutionJob.fillList"/>
+      <operation name="Intensive debug log" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypePatternJob.intensiveDebugLog" type="Log"/>
+      <operation name="Unexpected exception generation" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternWithPercentageJob.throwException"/>
+      <operation name="Deep work" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternWithPercentageJob.deepWork"/>
+      <operation name="On hold" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternJob.onHold"/>
+      <operation name="Ping pong player" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer." priority="901"/>
+    </operations>
+    <executors>
+      <!-- Executor patterns must be available within the 20 first lines of the thread dump -->
+      <!-- Features demo -->
+      <executor name="Demo thread" pattern="features.FeatureRunnable.run"/>
+      <executor name="MX Demo thread" pattern="LongTennisPlayer$TennisRunnable.run"/>
+      <executor name="Lock feature thread" pattern="features.tasks.LockedThreads$1.run"/>
+      <executor name="Deadlock feature thread" pattern="features.tasks.Deadlock$1.run"/>
+      <executor name="Undesired thread" pattern="org.jeyzer.demo.labors.job.executable.impl.UniqueThreadJob$SubUniqueThreadJob.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.UniqueThreadJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.SessionExecutionPatternJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeParallelContentionJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.JeyzerPublisherEventJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPresenceJob.executeJob"/>
+      <executor name="Active executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveThreadLimitJob$SubActiveThreadLimit.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveThreadLimitJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ApplicativeTaskOneshotEventJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeGlobalPercentageJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.MxBeanParameterNumberLowerJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ExcessiveGcTimeJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.MxBeanParameterPatternJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionAndOperationParallelContentionJob.executeJob"/>
+      <executor name="CPU consumer" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuRunnableVsCpuCapacityJob$SubCpuRunnableVsCpuCapacityJob.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuRunnableVsCpuCapacityJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.TaskJeyzerMxContextParameterNumberJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.MemoryConsumingProcessJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.LongRunningTaskJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationGlobalPercentageJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ProcessJarMultipleVersionsJob.executeJob"/>
+      <executor name="Sleeping executor" pattern="org.jeyzer.demo.labors.job.executable.impl.GlobalThreadLimitJob$SubGlobalThreadLimit.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.GlobalThreadLimitJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionPatternWithPercentageJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeInPrincipalPercentageJob.executeJob"/>
+      <executor name="Timer action executor" pattern="org.jeyzer.demo.labors.job.executable.impl.NamedThreadLeakJob$NamedThreadLeakTimer.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.NamedThreadLeakJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationParallelContentionJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.GcFailingToReleaseMemoryJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.MemoryConsumingTaskJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.TaskExecutionPatternJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationInPrincipalPercentageJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.DummyJob.executeJob"/>
+      <executor name="CPU consumer" pattern="org.jeyzer.demo.labors.job.executable.impl.SystemCpuOverloadJob$SubSystemCpuOverloadJob.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.SystemCpuOverloadJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.StackOverflowJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.JeyzerMxContextParameterNumberJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionPatternJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.LockerTaskJob.executeJob"/>
+      <executor name="Inactive client" pattern="org.jeyzer.demo.labors.job.executable.impl.NamedThreadLimitJob$SubNamedThreadLimitJob.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.NamedThreadLimitJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ApplicativeSystemEventJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionGlobalPercentageJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ApplicativeSessionLongEventJob.executeJob"/>
+      <executor name="Failover executor" pattern="org.jeyzer.demo.labors.job.executable.impl.MultiFunctionContentionJob$SubMultiFunctionContention.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.MultiFunctionContentionJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.LocksContentionJob.executeJob"/>
+      <executor name="CPU consumer" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuConsumingProcessJob$SubCpuConsumingProcessJob.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuConsumingProcessJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.FrozenStacksJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ExcessiveOldGcExecutionJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.LongRunningTaskWithFunctionJob.executeJob"/>
+      <executor name="Vital thread" pattern="org.jeyzer.demo.labors.job.executable.impl.AbsentThreadsJob$SubAbsentThreads.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.AbsentThreadsJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypePatternJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ApplicativeTaskLongEventJob.executeJob"/>
+      <executor name="Leaking thread" pattern="org.jeyzer.demo.labors.job.executable.impl.GlobalThreadLeakJob$SubGlobalThreadLeak.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.GlobalThreadLeakJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternWithPercentageJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ProcessJarManifestVersionMismatchJob.executeJob"/>
+      <executor name="Pool thread" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveNamedThreadLimitJob$SubActiveNamedThreadLimitWorker.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveNamedThreadLimitJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.JeyzerMxContextParameterPatternJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.TaskJeyzerMxContextParameterPatternJob.executeJob"/>
+      <executor name="Deadlock participant" pattern="org.jeyzer.demo.labors.job.executable.impl.DeadlockJob$SubDeadlock.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.DeadlockJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuConsumingTaskJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionInPrincipalPercentageJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionPresenceJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ProcessJarVersionSnapshotJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ProcessJarVersionAbsenceJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.MemoryConsumingSystemJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.FrozenStacksWithFunctionJob.executeJob"/>
+      <executor name="Failover executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveUniqueThreadJob$SubActiveUniqueThreadJob.run"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveUniqueThreadJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionParallelContentionJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ApplicativeSessionOneshotEventJob.executeJob"/>
+      <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.MxBeanParameterNumberHigherJob.executeJob"/>
+    </executors>
+    <executor_thread_names>
+      <!-- Executor pattern based on the thread name. Regular expression recommended -->
+      <!--executor_thread_name pattern="thread pattern" name="Thread type name"/-->
+      <!--executor_thread_name pattern_regex="regex" name="Thread type name"/-->
+      <executor_thread_name name="Thread executor" pattern_regex="ThreadNameExecutor.*"/>
+    </executor_thread_names>
+    <excludes>
+      <!-- If stack size is equal or below the limit (optional size attribute), thread stack is excluded -->
+      <exclude name="RMI Scheduler" pattern="ThreadPoolExecutor.getTask"/>
+      <exclude name="Finalizer" pattern="Finalizer$FinalizerThread.run"/>
+      <exclude name="Inactive demo thread" pattern="features.FeatureRunnable.waitForTermination"/>
+      <exclude name="Main" pattern="features.FeatureDemo.main"/>
+      <exclude name="Main" pattern="org.jeyzer.demo.labors.LaborsDemo.main"/>
+      <exclude name="Lock setup thread" pattern="features.tasks.LockedThreads.lockThreads"/>
+      <exclude name="Ping pong referee" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer$PingPongReferee"/>
+      <exclude name="PingPongPlayer instantiation" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer.&lt;init&gt;"/>
+    </excludes>
+    <exclude_thread_names>
+      <!-- Exclude stack based on thread name. Regular expression recommended -->
+      <!-- If stack size is equal or below the limit (optional size attribute), thread stack is excluded -->
+      <exclude_thread_name name="RMI thread" pattern_regex="RMI TCP.*"/>
+      <exclude_thread_name name="RMI thread" pattern="JMX server connection timeout"/>
+      <exclude_thread_name name="Reference Handler" pattern="Reference Handler"/>
+      <exclude_thread_name name="Thread to exclude" pattern="ExcludedThreadName" size="10"/>
+    </exclude_thread_names>
+  </patterns>
+</profile>
