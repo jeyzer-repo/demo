@@ -6,7 +6,7 @@
 		<property_card_mapper name="demo-mapper-name" source_property="jzr.jar.jeyzer-demo.jar.Implementation-ArtifactId">
 			<properties>
 				<!-- Properties instantiation -->
-				<!--   Ex: Instantiate the property module based on the jzr.process.name property card value matching the given pattern (.*) -->
+				<!--   Ex: Instantiate the property module based on the jzr.jar.jeyzer-demo.jar.Implementation-ArtifactId property card value matching the given pattern (.*) -->
 				<property name="module" pattern="(.*)" scope="property-value"/>
 			</properties>
 		</property_card_mapper>
