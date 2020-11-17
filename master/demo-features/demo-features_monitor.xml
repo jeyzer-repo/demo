@@ -8,7 +8,7 @@
 	<!-- Generate JZR report. Can be CPU/memory consuming if large volume of thread dumps -->
 	<!--   Conditional generation based on event level threshold : INFO, WARNING, CRITICAL -->
 	<!--   Optional email attachment -->
-	<analysis analysis_report_enabled="${JEYZER_JZR_REPORT_ENABLED}" publishers="mailer" threshold="CRITICAL"/>
+	<analysis analysis_report_enabled="${JEYZER_JZR_REPORT_ENABLED}" publishers="mailer, jira" threshold="CRITICAL"/>
 
 	<!-- Graph picture generation at the end of each monitoring scanning -->
 	<graph_snapshot snapshot_enabled="${JEYZER_MONITOR_GRAPH_PICTURE_ENABLED}" publishers="web" >
@@ -33,7 +33,7 @@
 		<!-- Event threshold. Possible values ares : INFO, WARNING, CRITICAL -->
 		<!-- Re-emit published events : if true, upon a long life critical event for ex, repeat the email sending. Implies to dump the events. Recommended. -->
 		<!--                            if false, email sending will occur only at the critical event generation. -->
-		<!--                            Note that JZR report will be generated and sent only once for performance and anti email pollution reasons. -->
+		<!--                            Note that JZR report will be generated and sent only once for performance and non spamming reasons. -->
 		<mailer threshold="CRITICAL" reemit_published_events="true">
 			<!-- mail configuration -->
 			<!-- recipients is a comma separated list of emails --> 
@@ -41,6 +41,9 @@
 				<template directory="${JEYZER_ANALYZER_CONFIG_DIR}/monitor/publishers/mailer" name="mail_content_template.vm"/>
 			</mail>
 		</mailer>
+		
+		<!-- Create or update a JIRA item --> 
+		<jira jira_config_file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/publishers/jira/jira.xml"/>
 		
 		<!-- Push the result of the HTML logger under a web doc directory --> 
 		<web web_enabled="${JEYZER_MONITOR_WEB_ENABLED}" url="https://${JEYZER_MONITOR_WEB_HOST}:${JEYZER_MONITOR_WEB_PORT}/jeyzer-monitor" deploy="${JEYZER_MONITOR_WEB_DEPLOY_DIR}"/>

@@ -111,7 +111,7 @@
 		</rule>
 
 		<!--  If used memory is increasing and upper than [used_memory] %, released memory is lower than [released_memory] % and GC time is higher than [gc_time] ms for [count or time] times, generate event. -->
-		<rule name="GC failing to release memory" ref="DEM-ADV-009">
+		<rule name="GC failing to release memory" ref="DEM-ADV-009" ticket="JT-19">
 			<thresholds>
 				<threshold type="session custom"
 						   count="1"
