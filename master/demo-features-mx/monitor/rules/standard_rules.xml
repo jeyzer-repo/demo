@@ -109,6 +109,7 @@
 						   count="5"
 						   value="10"
 				           level="CRITICAL" 
+				           sub_level="6"
 				           message="Thread stack too high. Check the relative thread dump to see if there is stack overflow evidence."/>
 			</thresholds>
 		</rule>
