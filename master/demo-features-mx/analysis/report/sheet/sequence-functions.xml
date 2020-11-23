@@ -16,13 +16,6 @@
 				<suspended_counter     header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/suspended-counter.xml"/>
 				<recording_snapshot_file_name/>
 
-				<section_delimiter title="Jeyzer MX" color="RGB-201-208-168"/>
-				<jzr_mx_context_param_number name="dynamic-param-1" display="Param 1 count" display_comment="Param 1 count comment" threshold="1" color="RED">
-					<!-- Factor defined in percentage gain or loss -->
-					<delta increase_factor="10" increase_color="RGB-255-180-129" decrease_factor="10" decrease_color="RGB-167-255-167"/>
-				</jzr_mx_context_param_number>
-				<jzr_mx_context_param name="dynamic-param-2" display="Param 2" display_comment="Param 2 comment"/>
-
 				<section_delimiter title="Demo thread pool" color="RGB-201-208-168"/>
 				<!-- Pool thread counter -->
 				<!--   To display in graphs, refer to : pool_thread_counter-<lower case pool name with spaces replaced by dashes> -->
@@ -86,12 +79,9 @@
 
 				<advanced_function display_operation="false" display_contention_type="false">
 					<highlight name="(ATBI)" color="GREY_25_PERCENT"/>
-					<highlight name="Plays ping (blue)" color="RGB-0-112-192"/>
-					<highlight name="Plays pong (green)" color="RGB-112-173-71"/>
+					<highlight name="Left wing light (yellow)" color="RGB-243-238-141"/>  <!-- Yellow-->
+					<highlight name="Right wing light (green)" color="RGB-112-173-71"/>  <!-- Green-->
 					<highlight name="Dysfunctional code sequence" color="RGB-254-148-6"/> <!-- Orange light-->
-					<highlight name="Run left" color="RGB-153-204-255"/>
-					<highlight name="Run middle" color="RGB-117-186-255"/>
-					<highlight name="Run right" color="RGB-83-169-255"/>
 				</advanced_function>
 
 				<!-- Stack trace display as cell comment. Adds overhead processing -->

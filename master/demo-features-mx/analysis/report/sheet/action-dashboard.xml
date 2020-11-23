@@ -14,7 +14,7 @@
 				<rule_sets files="repo://base/@@base-shared-deps@@"/>
 				<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/standard_rules.xml"/>
 				<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/advanced_rules.xml"/>
-				<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/mx_tennis_rules.xml"/>
+				<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/mx_aircraft_rules.xml"/>
 				<task_applicative_rules/>
 				<dynamic_rule_sets declared_repository_only="true"/>
 			</rules>

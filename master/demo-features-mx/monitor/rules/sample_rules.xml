@@ -807,53 +807,54 @@
 		
 		<!--  If Jeyzer MX context parameter takes more than [second_threshold] ms for [threshold] times, generate event. -->
 		<!--  Operator is either greater_or_equal (default) or lower_or_equal -->
-		<rule name="Jeyzer MX context parameter number" param_display="Number of serves" param="tennis-serves" ref="SAMPLE-200">
-			<narrative>This rule permits to detect high number of tennis serves.</narrative>
+		<rule name="Jeyzer MX context parameter number" param_display="All flights maximum altitude" param="flight-max-altitude" ref="SAMPLE-200">
+			<narrative>This rule permits to detect any high flight altitude.</narrative>
 			<thresholds>
 				<threshold type="global value" 
 						   count="1"
-				           value="17" 
+				           value="35000" 
 				           level="WARNING" 
-				           message="Number of serves too high."/>
+				           message="Flight altitude in feet too high."/>
 				<threshold type="session value" 
 						   count="1"
-				           value="17" 
+				           value="40000" 
 				           level="WARNING" 
-				           message="Number of serves too high."/>
+				           message="Flight altitude in feet quite high."/>
    			</thresholds>		
 		</rule>
 		
 		<!--  If Jeyzer MX context parameter value is matching the [pattern] for more than [count] or [time], generate event. -->
-		<rule name="Jeyzer MX context parameter pattern" param_display="Good score" param="tennis-score" ref="SAMPLE-201">
-			<narrative>This rule permits to detect good tennis scores.</narrative>
+		<rule name="Jeyzer MX context parameter pattern" param_display="All wind forces" param="flight-wind-forces" ref="SAMPLE-201">
+			<narrative>This rule permits to detect any strong wind force (Beaufort scale based).</narrative>
 			<thresholds>
 				<threshold type="global pattern" 
 						   count="1"
-				           pattern="(5 / 0)|(0 / 5)" 
+				           pattern="9|10" 
 				           level="WARNING" 
-				           message="Good score !!"/>
+				           message="Strong wind detected. Please notify all planes."/>
 				<threshold type="session pattern" 
 						   count="1"
-				           pattern="(5 / 0)|(0 / 5)" 
-				           level="WARNING" 
-				           message="Good score !!"/>
+				           pattern="11|12" 
+				           level="CRITICAL" 
+				           message="Very strong wind detected. Please notify all planes."/>
    			</thresholds>
 		</rule>
 		
 		<!--  If Jeyzer MX context parameter value for the current task is greater than value, generate event. If user exists, will be added as message prefix -->
 		<!--  Operator is either greater_or_equal (default) or lower_or_equal -->
-		<rule name="Task Jeyzer MX context parameter number" param_display="Number of player serves" param="tennis-serves" operator="greater_or_equal" ref="SAMPLE-202">
-			<narrative>This rule permits to detect high number of player serves.</narrative>
+		<rule name="Task Jeyzer MX context parameter number" param_display="Flight maximum altitude" param="flight-max-altitude" operator="greater_or_equal" ref="SAMPLE-202">
+			<narrative>This rule permits to detect high flight altitude.</narrative>
 			<thresholds>
 				<threshold 	type="action value" 
-							count="1" value="9" 
+							count="1" 
+							value="35000" 
 							level="WARNING" 
-							message="Player number of serves too high."/>
+							message="Flight altitude in feet quite high."/>
 				<threshold 	type="action value" 
 							count="1" 
-							value="8" 
+							value="30000" 
 							level="INFO" 
-							message="Player number of serves too high."/>
+							message="High flight altitude."/>
 			</thresholds>
 		</rule>
 

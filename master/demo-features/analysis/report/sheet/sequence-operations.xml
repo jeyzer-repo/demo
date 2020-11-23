@@ -24,10 +24,10 @@
 					<highlight name="Method action level2 is synchronized" color="RGB-191-219-157"/> <!-- Green ultra light-->
 					<highlight name="Access to already locked resource" color="RGB-255-101-101"/> <!-- Red light-->
 					
-					<highlight name="Forehand shot" color="RGB-247-225-241"/> <!-- Pink light-->
-					<highlight name="Grip shot" color="RGB-242-206-233"/>
-					<highlight name="Backhand shot" color="RGB-237-185-223"/>
-					<highlight name="Serve shot" color="RGB-231-163-213"/>  <!-- Pink dark-->
+					<highlight name="Decelerate" color="RGB-247-225-241"/> <!-- Pink light-->
+					<highlight name="Cruise" color="RGB-231-163-213"/>  <!-- Pink medium -->
+					<highlight name="Accelerate" color="RGB-239-121-160"/> <!-- Pink dark -->
+					<highlight name="Put gas" color="RGB-235-87-136"/> <!-- Pink dark red -->
 				</advanced_operation>
 
 				<!-- Stack trace display as cell comment. Adds overhead processing -->

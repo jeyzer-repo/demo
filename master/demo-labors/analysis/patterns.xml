@@ -34,7 +34,7 @@
       <function name="Fly with failure" pattern="org.jeyzer.demo.labors.job.executable.impl.MxBeanParameterPatternJob.flyWithFailure"/>
       <function name="Store message" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionAndOperationParallelContentionJob.storeMessage"/>
       <function name="Jdbc connection pool access" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionAndOperationParallelContentionJob.jdbcConnectionPoolAccess"/>
-      <function name="Consume c p u" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuRunnableVsCpuCapacityJob$SubCpuRunnableVsCpuCapacityJob.consumeCPU"/>
+      <function name="Consume cpu" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuRunnableVsCpuCapacityJob$SubCpuRunnableVsCpuCapacityJob.consumeCPU"/>
       <function name="Create cpu consuming threads" pattern="org.jeyzer.demo.labors.job.executable.impl.CpuRunnableVsCpuCapacityJob.createCpuConsumingThreads"/>
       <function name="Publish activity error count" pattern="org.jeyzer.demo.labors.job.executable.impl.TaskJeyzerMxContextParameterNumberJob.publishActivityErrorCount"/>
       <function name="Waiting before ExecutorService forceShutdown" pattern="org.jeyzer.demo.features.tasks.Deadlock.waitBeforeShutdown"/>
@@ -62,10 +62,10 @@
       <function name="Perform" pattern="org.jeyzer.demo.labors.job.DummyJob.perform"/>
       <function name="Analyze" pattern="org.jeyzer.demo.labors.job.DummyJob.analyze"/>
       <function name="Focus" pattern="org.jeyzer.demo.labors.job.DummyJob.focus"/>
-      <function name="PingPongReferee instantiation" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer$PingPongReferee.&lt;init&gt;"/>
-      <function name="Watch" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer$PingPongReferee.watch"/>
-      <function name="Get name" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer.getName"/>
-      <function name="Plays ping (blue)" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer.doPing"/>
+      <function name="EmergencyLightTester instantiation" pattern="org.jeyzer.demo.features.tasks.WingLightTester$EmergencyLightTester.&lt;init&gt;"/>
+      <function name="Watch" pattern="org.jeyzer.demo.features.tasks.WingLightTester$EmergencyLightTester.light"/>
+      <function name="Get name" pattern="org.jeyzer.demo.features.tasks.WingLightTester.getName"/>
+      <function name="Plays ping (blue)" pattern="org.jeyzer.demo.features.tasks.WingLightTester.doPing"/>
       <function name="Consume cpu" pattern="org.jeyzer.demo.labors.job.executable.impl.SystemCpuOverloadJob$SubSystemCpuOverloadJob.consumeCpu"/>
       <function name="Create cpu consuming threads" pattern="org.jeyzer.demo.labors.job.executable.impl.SystemCpuOverloadJob.createCpuConsumingThreads"/>
       <function name="Recursive method" pattern="org.jeyzer.demo.labors.job.executable.impl.StackOverflowJob.recursiveMethod"/>
@@ -98,10 +98,10 @@
       <function name="Create global threads" pattern="org.jeyzer.demo.labors.job.executable.impl.GlobalThreadLeakJob.createGlobalThreads"/>
       <function name="Process data" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternWithPercentageJob.processData"/>
       <function name="Memory consuming section : please look at Memory panel for more details" pattern="org.jeyzer.demo.features.tasks.MemoryConsumingTask.consumeMemory"/>
-      <function name="Long running tennis player" pattern="org.jeyzer.demo.features.mx.jeyzer.LongTennisPlayer.longRunningTask"/>
-      <function name="Run left" pattern="org.jeyzer.demo.features.mx.jeyzer.LongTennisPlayer.runLeft"/>
-      <function name="Run middle" pattern="org.jeyzer.demo.features.mx.jeyzer.LongTennisPlayer.runMiddle"/>
-      <function name="Run right" pattern="org.jeyzer.demo.features.mx.jeyzer.LongTennisPlayer.runRight"/>
+      <function name="Long range flight" pattern="features.mx.jeyzer.Airliner.longRangeFlight"/>
+      <function name="Assisted" pattern="org.jeyzer.demo.features.mx.jeyzer.Airliner.assisted"/>
+      <function name="Autopilot" pattern="org.jeyzer.demo.features.mx.jeyzer.Airliner.autopilot"/>
+      <function name="Manual" pattern="org.jeyzer.demo.features.mx.jeyzer.Airliner.manual"/>
       <function name="Do nothing" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveNamedThreadLimitJob$SubActiveNamedThreadLimitWorker.doNothing"/>
       <function name="Process work" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveNamedThreadLimitJob$SubActiveNamedThreadLimitWorker.processWork"/>
       <function name="Activate worker threads" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveNamedThreadLimitJob.activateWorkerThreads"/>
@@ -147,19 +147,18 @@
       <operation name="Compute" pattern="org.jeyzer.demo.labors.job.DummyJob.compute"/>
       <operation name="Read" pattern="org.jeyzer.demo.labors.job.DummyJob.read"/>
       <operation name="Scan" pattern="org.jeyzer.demo.labors.job.DummyJob.scan"/>
-      <operation name="Plays pong (green)" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer.doPong"/>
       <operation name="Work alone" pattern="org.jeyzer.demo.labors.job.executable.impl.LocksContentionJob.workAlone"/>
       <operation name="Fill list" pattern="org.jeyzer.demo.labors.job.executable.impl.ExcessiveOldGcExecutionJob.fillList"/>
       <operation name="Intensive debug log" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypePatternJob.intensiveDebugLog" type="Log"/>
       <operation name="Unexpected exception generation" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternWithPercentageJob.throwException"/>
       <operation name="Deep work" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternWithPercentageJob.deepWork"/>
       <operation name="Memory creation : fill list with random long numbers" pattern="org.jeyzer.demo.features.tasks.MemoryConsumingTask.consumeMemory"/>
-      <operation name="Backhand shot" pattern="org.jeyzer.demo.features.mx.jeyzer.LongTennisPlayer.backhandShot" type="Shot"/>
-      <operation name="Serve shot" pattern="org.jeyzer.demo.features.mx.jeyzer.LongTennisPlayer.serveShot" type="Shot"/>
-      <operation name="Grip shot" pattern="org.jeyzer.demo.features.mx.jeyzer.LongTennisPlayer.gripShot" type="Shot"/>
-      <operation name="Forehand shot" pattern="org.jeyzer.demo.features.mx.jeyzer.LongTennisPlayer.forehandShot" type="Shot"/>
+      <operation name="Accelerate" pattern="org.jeyzer.demo.features.mx.jeyzer.Airliner.accelerate" type="Fuel consumption"/>
+      <operation name="Cruise" pattern="org.jeyzer.demo.features.mx.jeyzer.Airliner.cruise" type="Fuel consumption"/>
+      <operation name="Put gas" pattern="org.jeyzer.demo.features.mx.jeyzer.Airliner.putGas" type="Fuel consumption"/>
+      <operation name="Decelerate" pattern="org.jeyzer.demo.features.mx.jeyzer.Airliner.decelerate" type="Fuel consumption"/>
       <operation name="On hold" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternJob.onHold"/>
-      <operation name="Ping pong player" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer." priority="901"/>
+      <operation name="Wing light tester" pattern="org.jeyzer.demo.features.tasks.WingLightTester." priority="901"/>
     </operations>
     <executors>
       <!-- Executor patterns must be available within the 20 first lines of the thread dump -->
@@ -225,7 +224,7 @@
       <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.GlobalThreadLeakJob.executeJob"/>
       <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPatternWithPercentageJob.executeJob"/>
       <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ProcessJarManifestVersionMismatchJob.executeJob"/>
-      <executor name="MX Demo thread" pattern="org.jeyzer.demo.features.mx.jeyzer.LongTennisPlayer$TennisRunnable.run"/>
+      <executor name="MX Demo thread" pattern="org.jeyzer.demo.features.mx.jeyzer.Airliner$AirlinerRunnable.run"/>
       <executor name="Pool thread" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveNamedThreadLimitJob$SubActiveNamedThreadLimitWorker.run"/>
       <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.ActiveNamedThreadLimitJob.executeJob"/>
       <executor name="Job executor" pattern="org.jeyzer.demo.labors.job.executable.impl.JeyzerMxContextParameterPatternJob.executeJob"/>
@@ -262,8 +261,8 @@
       <exclude name="Main" pattern="org.jeyzer.demo.features.FeatureDemo.main"/>
       <exclude name="Lock setup thread" pattern="org.jeyzer.demo.features.tasks.LockedThreads.lockThreads"/>
       <exclude name="Main" pattern="org.jeyzer.demo.labors.LaborsDemo.main"/>
-      <exclude name="Ping pong referee" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer$PingPongReferee"/>
-      <exclude name="PingPongPlayer instantiation" pattern="org.jeyzer.demo.features.tasks.PingPongPlayer.&lt;init&gt;"/>
+      <exclude name="Ping pong referee" pattern="org.jeyzer.demo.features.tasks.WingLightTester$EmergencyLightTester"/>
+      <exclude name="WingLightTester instantiation" pattern="org.jeyzer.demo.features.tasks.WingLightTester.&lt;init&gt;"/>
     </excludes>
     <exclude_thread_names>
       <!-- Exclude stack based on thread name. Regular expression recommended -->

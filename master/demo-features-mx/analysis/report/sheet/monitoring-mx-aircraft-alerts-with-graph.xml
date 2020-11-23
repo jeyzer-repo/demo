@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-		<sheet type="monitoring_events" name="MX alerts (Tennis)" critical_tab_color="LIGHT_ORANGE">
+		<sheet type="monitoring_events" name="MX alerts (Airliner)" critical_tab_color="LIGHT_ORANGE">
 			<!-- Sheet description. Use &#10; as carriage return -->
-			<description>Displays MX Tennis monitoring events.&#10;Permits to identify Tennis applicative problems.</description>
+			<description>Displays MX aircraft monitoring events.&#10;Permits to identify flight problems.</description>
 			<display date_format="yyyy/MM/dd HH:mm:ss" grouping="true" group_sorting="false" clean_duplicate_events="false">
 				<links sequence_sheets="Fea, Mxf"/>
 				<ranking>
@@ -10,7 +10,7 @@
 				</ranking>
 			</display>
 			<rules>
-				<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/mx_tennis_rules.xml"/>
+				<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/mx_aircraft_rules.xml"/>
 			</rules>
 			<stickers>
 				<sticker_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/stickers/demo_stickers.xml"/>

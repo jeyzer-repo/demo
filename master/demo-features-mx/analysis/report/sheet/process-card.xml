@@ -3,16 +3,16 @@
 		<!-- process card sheet will be displayed only if the process card file is available -->
 		<sheet type="process_card" name="Process card">
 			<!-- category will be displayed if at least one property is found in the process card file -->
-			<category name="Jeyzer MX (Tennis)" color="RGB-191-202-136">
+			<category name="Jeyzer MX (Airliner)" color="RGB-191-202-136">
 				<field name="Node name" property="jzr.node.name"/>
 				<field name="Name" property="jzr.process.name"/>
 				<field name="Version" property="jzr.process.version"/>
 				<field name="Build Number" property="jzr.process.build.number"/>
 				<field name="Profile" property="jzr.profile.name"/>
 				<!-- Customize this section based on your application parameters -->
-				<field name="Tennis place" property="jzr.cxt.param-tennis-location"/>
-				<field name="Tennis court" property="jzr.cxt.param-tennis-court"/>
-				<field name="Tennis ground type" property="jzr.cxt.param-tennis-ground"/>
+				<field name="Departure airport" property="jzr.cxt.param-departure-airport"/>
+				<field name="Destination airport" property="jzr.cxt.param-destination-airport"/>
+				<field name="Flight line type" property="jzr.cxt.param-flight-line-type"/>
 			</category>
 			<category name="Generic MX" color="RGB-191-202-136">
 				<field name="Demo name" property_pattern="org.jeyzer.demo:DemoFeatures:DemoName"/>

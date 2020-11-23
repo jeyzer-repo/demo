@@ -24,7 +24,7 @@
 
 		<sheet sheet_config_file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/analysis/report/sheet/monitoring-advanced-alerts-with-graph.xml"/>
 		
-		<sheet sheet_config_file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/analysis/report/sheet/monitoring-mx-tennis-alerts-with-graph.xml"/>
+		<sheet sheet_config_file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/analysis/report/sheet/monitoring-mx-aircraft-alerts-with-graph.xml"/>
 		
 		<sheet sheet_config_file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/analysis/report/sheet/monitoring-event-journal.xml"/>
 		

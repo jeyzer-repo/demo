@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-		<sheet type="sequence" name="MX Features (Tennis)" link_type="Mxf">
+		<sheet type="sequence" name="MX Features (Airliner)" link_type="Mxf">
 		
 			<!-- Sheet description. Use &#10; as carriage return -->
-			<description>Displays Jeyzer time sequence display features, focusing on Jeyzer MX features.</description>
+			<description>Displays the air cruise data on a time line. Data is Jeyzer MX based.</description>
 		
 			<!-- Optional -->
 			<headers formats="Advanced JMX,Advanced Agent">
@@ -17,14 +17,14 @@
 				</math_functions>
 			
 				<!-- Headers -->
-				<jzr_mx_context_param name="tennis-score" display="Score" display_comment="Game score"/>
-				<jzr_mx_context_param_number name="tennis-serves" display="Serves" display_comment="Cumulative total of serves." threshold="99999" color="RED">
+				<jzr_mx_context_param name="flight-wind-forces" display="All wind forces" display_comment="All wind forces observed by the planes."/>
+				<jzr_mx_context_param_number name="flight-max-altitude" display="Max altitude" display_comment="Maximum altitude reached by a plane." threshold="40000" color="RED">
 					<!-- Factor defined in percentage gain or loss -->
-					<delta increase_factor="20" increase_color="RGB-255-180-129" decrease_factor="20" decrease_color="RGB-167-255-167"/>
+					<delta increase_factor="200" increase_color="RGB-255-180-129" decrease_factor="200" decrease_color="RGB-167-255-167"/>
 				</jzr_mx_context_param_number>
-				<jzr_mx_context_param_number name="tennis-balls-played" display="Balls played" display_comment="Cumulative total of played balls." threshold="99999" color="RED">
+				<jzr_mx_context_param_number name="fuel-consumed" display="Fuel consumed" display_comment="Cumulative total of consumed fuel." threshold="99999" color="RED">
 					<!-- Factor defined in percentage gain or loss -->
-					<delta increase_factor="20" increase_color="RGB-255-180-129" decrease_factor="20" decrease_color="RGB-167-255-167"/>
+					<delta increase_factor="50" increase_color="RGB-255-180-129" decrease_factor="50" decrease_color="RGB-167-255-167"/>
 				</jzr_mx_context_param_number>
 				<jzr_mx_all_context_params display="All params"/>
 				
@@ -33,8 +33,8 @@
 				<mx_bean_param name="org.jeyzer.demo:DemoFeatures:PlayedFeatures" display="Played features" display_comment="Played features"/>
 				
 				<!--
-				<section_delimiter title="Volley ball MX generic" color="RGB-201-208-168"/>
-				<mx_bean_param name="org.jeyzer.demo:VolleyBall:Action" display="Volley action" display_comment="Volley action"/>
+				<section_delimiter title="Flight mission MX generic" color="RGB-201-208-168"/>
+				<mx_bean_param name="org.jeyzer.demo:type=MilitaryFlightMission:Action" display="Mission action" display_comment="Mission action"/>
 				-->
 				
 			</headers>
@@ -44,7 +44,7 @@
 				<jzr_mx_action_user/>
 				<jzr_mx_action_start_time/>
 				<jzr_mx_action_function_principal/>
-				<jzr_mx_context_param name="level" display="Level" display_comment="Player level"/>
+				<jzr_mx_context_param name="flight-hours" display="Flight hours" display_comment="Plane flight hours total"/>
 				<jzr_mx_all_context_params display="Ctx params"/>
 			</row_headers>
 		
@@ -52,14 +52,14 @@
 			
 				<!-- Context parameters display as cell comment. -->
 				<jzr_mx_all_context_params/>
-				<jzr_mx_context_param_number name="tennis-points" threshold="5" color="RGB-198-239-206" />
+				<jzr_mx_context_param_number name="fuel-consumed" threshold="90" color="RGB-198-239-206" />
 				
-				<!-- Alternative 1 : display serves -->
-				<!--jzr_mx_context_param_number name="tennis-serves" threshold="7" color="RGB-198-239-206"/-->
+				<!-- Alternative 1 : display flight max altitude -->
+				<!--jzr_mx_context_param_number name="flight-max-altitude" threshold="40000" color="RGB-198-239-206"/-->
 				
 				<!-- Alternative 2 : display all values -->
-				<!--jzr_mx_context_param name="tennis-serves"/-->
-				<!--jzr_mx_context_param name="tennis-points"/-->
+				<!--jzr_mx_context_param name="flight-max-altitude"/-->
+				<!--jzr_mx_context_param name="fuel-consumed"/-->
 				
 			</display>
 		</sheet>

@@ -29,12 +29,9 @@
 
 				<advanced_function display_operation="false" display_contention_type="false">
 					<highlight name="(ATBI)" color="GREY_25_PERCENT"/>
-					<highlight name="Plays ping (blue)" color="RGB-0-112-192"/>
-					<highlight name="Plays pong (green)" color="RGB-112-173-71"/>
+					<highlight name="Left wing yellow light" color="RGB-243-238-141"/>  <!-- Yellow-->
+					<highlight name="Right wing green light" color="RGB-112-173-71"/>  <!-- Green-->
 					<highlight name="Dysfunctional code sequence" color="RGB-254-148-6"/> <!-- Orange light-->
-					<highlight name="Run left" color="RGB-153-204-255"/>
-					<highlight name="Run middle" color="RGB-117-186-255"/>
-					<highlight name="Run right" color="RGB-83-169-255"/>
 				</advanced_function>
 
 				<!-- Stack trace display as cell comment. Adds overhead processing -->
