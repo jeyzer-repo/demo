@@ -26,16 +26,16 @@
     <!-- In pattern attribute, use semicolon separator to declare multiple line patterns -->
     <functions>
       <!-- Features demo -->
-      <function name="Left wing light (yellow)" pattern="features.tasks.WingLightTester.lightYellow"/>
-      <function name="Right wing light (green)" pattern="features.tasks.WingLightTester.lightGreen"/>
+      <function name="Left wing yellow light" pattern="features.tasks.WingLightTester.lightYellow"/>
+      <function name="Right wing green light" pattern="features.tasks.WingLightTester.lightGreen"/>
       <function name="Long range flight" pattern="features.mx.jeyzer.Airliner.longRangeFlight"/>
       <function name="Assisted" pattern="features.mx.jeyzer.Airliner.assisted"/>
       <function name="Manual" pattern="features.mx.jeyzer.Airliner.manual"/>
       <function name="Autopilot" pattern="features.mx.jeyzer.Airliner.autopilot"/>
-	  <function pattern="org.jeyzer.demo.features.mx.generic.fighter.FighterAircraft.barrel"    name="barrel"/>
-	  <function pattern="org.jeyzer.demo.features.mx.generic.fighter.FighterAircraft.cisor"     name="cisor"/>
-	  <function pattern="org.jeyzer.demo.features.mx.generic.fighter.FighterAircraft.yoyo"      name="yoyo"/>
-	  <function pattern="org.jeyzer.demo.features.mx.generic.fighter.FighterAircraft.immelmann" name="immelmann"/>
+	  <function name="Fighter barrel" pattern="org.jeyzer.demo.features.mx.generic.fighter.FighterAircraft.barrel"/>
+	  <function name="Fighter cisor" pattern="org.jeyzer.demo.features.mx.generic.fighter.FighterAircraft.cisor"/>
+	  <function name="Fighter yoyo" pattern="org.jeyzer.demo.features.mx.generic.fighter.FighterAircraft.yoyo"/>
+	  <function name="Fighter immelmann" pattern="org.jeyzer.demo.features.mx.generic.fighter.FighterAircraft.immelmann"/>
       <function name="Frozen code section : stacks are identical" pattern="features.tasks.FrozenCode.frozenCode"/>
       <function name="Out Of Memory thread" pattern="features.tasks.MemoryExhaustingTask.exhaustMemory"/>
       <function name="Memory consuming thread" pattern="features.tasks.MemoryConsumingTask.consumeMemory"/>
