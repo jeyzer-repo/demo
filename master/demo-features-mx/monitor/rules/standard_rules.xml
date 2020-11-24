@@ -14,12 +14,12 @@
 				<threshold 	type="action signal"
 							time="40s" 
 							level="WARNING" 
-							message="Task showing identical consecutive stacks for long time. Collects thread dumps and contact your software provider."/>
+							message="Task showing identical consecutive stacks for long time. Provide your software provider with the JZR report for review."/>
 				<threshold 	type="action signal" 
 							count="2" 
 							function="Frozen code section.*" 
 							level="INFO" 
-							message="Task showing identical consecutive stacks on specific action. Collects thread dumps and contact your software provider."/>
+							message="Task showing identical consecutive stacks on specific action. Provide your software provider with the JZR report for review."/>
 			</thresholds>
 		</rule>
 
