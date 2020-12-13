@@ -16,12 +16,12 @@ The Jeyzer Analyzer is always accessing the **local** version first of the share
 https://raw.githubusercontent.com/jeyzer-repo/demo/master/shared \
 Note that the "master" in this URL is the git branch (not to be confused with a Jeyzer "master" profile).
 
-If you wish to execute the analysis against a constant version, set the desired <version> in the URL specified in the demo.xml of your Jeyzer installation : \
+If you wish to execute the analysis against a constant version, set the desired \<version\> in the URL specified in the demo-repository.xml of your Jeyzer installation : \
 https://raw.githubusercontent.com/jeyzer-repo/demo/demo-<version\>/shared
 
-If you wish to load the shared profiles from the online repository, set the local_first=false in your demo.xml.
+If you wish to load the shared profiles from the online repository, set the local_first=false in your demo-repository.xml.
 
-As reminder, the demo.xml is located in the profiles/shared-repositories directory of your Jeyzer installation.
+As reminder, the demo-repository.xml is located in the profiles/shared-repositories directory of your Jeyzer installation.
 
 
 Master profile access
