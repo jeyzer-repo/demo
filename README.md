@@ -26,10 +26,10 @@ As reminder, the demo-repository.xml is located in the profiles/shared-repositor
 
 Master profile access
 ---------------------------
-The demo master profiles are loaded by the Jeyzer Web Analyzer.\
+The demo master profiles are loaded by the Jeyzer Web Analyzer.
 
 If you wish to remove the demo master profiles from the Jeyzer Web Analyzer, remove the JEYZER_DEMO_MASTER_PROFILES_DIR reference from the JEYZER_MASTER_PROFILES_DIR_ROOTS environment variable.\
-The JEYZER_MASTER_PROFILES_DIR_ROOTS variable is by default set in the web\apache-tomcat-9.0.30\bin\setenv.bat|sh file of your Jeyzer installation.
+The JEYZER_MASTER_PROFILES_DIR_ROOTS variable is by default set in the web/apache-tomcat-9.0.30/bin/setenv.bat|sh file of your Jeyzer installation.
 
 
 License
