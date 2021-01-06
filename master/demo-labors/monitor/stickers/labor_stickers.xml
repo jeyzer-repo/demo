@@ -117,5 +117,11 @@
 	<sticker name="process_jar_name"                		type="property card" property="demo.job.process_jar_name"               		pattern="true"/>
 	<sticker name="process_jar_name_absence"                type="property card" property="demo.job.process_jar_name_absence"               pattern="true"/>
 	<sticker name="process_jar_manifest_version_mismatch"   type="property card" property="demo.job.process_jar_manifest_version_mismatch"  pattern="true"/>
+	
+	<sticker name="process_module_version_snapshot"    		type="property card" property="demo.job.process_module_version_snapshot"   		pattern="true"/>
+	<sticker name="process_module_version"             		type="property card" property="demo.job.process_module_version"            		pattern="true"/>
+	<sticker name="process_module_version_absence"     		type="property card" property="demo.job.process_module_version_absence"    		pattern="true"/>
+	<sticker name="process_module_name"                		type="property card" property="demo.job.process_module_name"               		pattern="true"/>
+	<sticker name="process_module_name_absence"             type="property card" property="demo.job.process_module_name_absence"            pattern="true"/>
 
 </stickers>

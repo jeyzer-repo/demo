@@ -678,7 +678,7 @@
 		</rule>
 		
 		<!--  If the process jar version is a snapshot, alpha, beta, build... version, generate event. -->
-		<rule name="Process jar version snapshot" ref="LAB-RUN-055" stickers="process_jar_version_snapshot">
+		<rule name="Process jar version snapshot" stickers="process_jar_version_snapshot" ref="LAB-RUN-055">
 			<narrative>This rule checks if the process jars have snapshot versions. It it important to run with official libraries.</narrative>
 			<thresholds>
 				<threshold type="system signal"
@@ -689,7 +689,7 @@
 		</rule>
 		
 		<!--  If the process jar is present multiple times, generate event. -->
-		<rule name="Process jar multiple versions" ref="LAB-RUN-056" stickers="process_jar_multiple_versions">
+		<rule name="Process jar multiple versions" stickers="process_jar_multiple_versions" ref="LAB-RUN-056">
 			<narrative>This rule checks if any process jar is present under different versions.\n If the jar files can be accessed from the monitored application (depending on the class loading design), it can be dangerous as the wrong jar file may be loaded.\n Under an application server, this could be a false positive as the loaded jar files can be isolated at web app level.</narrative>
 			<thresholds>
 				<threshold type="system signal"
@@ -698,7 +698,6 @@
 			</thresholds>
 		</rule>
 		
-				
 		<!--  If the process jar version is not available, generate event. -->
 		<rule name="Process jar version absence" stickers="process_jar_version_absence" ref="LAB-RUN-057">
 			<narrative>This rule checks the absence of versions on the process jars. It it important to know the library version in case of issue.</narrative>
@@ -717,6 +716,28 @@
 				<threshold type="system signal"
 				           level="INFO"
 				           message="Demo is running with libraries containing inconsistent version information."/>
+			</thresholds>
+		</rule>
+		
+		<!--  If the process module version is a snapshot, alpha, beta, build... version, generate event. -->
+		<rule name="Process module version snapshot" stickers="process_module_version_snapshot" ref="LAB-RUN-059">
+			<narrative>This rule checks if the Java modules have snapshot versions. It it important to run with official modules.</narrative>
+			<thresholds>
+				<threshold type="system signal"
+				           level="WARNING"
+				           sub_level="10" 
+				           message="Demo is running with snapshot modules.&#10; It is highly recommended to run only with released modules."/>
+			</thresholds>
+		</rule>
+		
+		<!--  If the process module version is not available, generate event. -->
+		<rule name="Process module version absence" stickers="process_module_version_absence" ref="LAB-RUN-060">
+			<narrative>This rule checks the absence of versions on the Java modules. It it important to know the module version in case of issue.</narrative>
+			<thresholds>
+				<threshold type="system signal"
+				           level="INFO"
+				           sub_level="8" 
+				           message="Demo is running with Java modules without version.&#10; It is recommended to run with versionned modules."/>
 			</thresholds>
 		</rule>
 		

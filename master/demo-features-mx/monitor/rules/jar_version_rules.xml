@@ -9,13 +9,13 @@
 		<!-- ************************************************************************ -->
 		
 		<!--  If process jar version is matching the given sticker (usually a process jar version sticker), generate event. -->
-		<rule name="Process jar version" extra_info="Logback obscolescence" stickers="logback-1.0.x" ref="DEM-PJV-001">
-			<narrative>This rule checks the obsolescence of the logback library.</narrative>
+		<rule name="Process jar version" extra_info="Logback non stable version" stickers="logback-1.3.alpha" ref="DEM-PJV-001">
+			<narrative>This rule checks the instability of the logback library.</narrative>
 			<thresholds>
 				<threshold type="system signal" 
 				           level="INFO" 
 				           sub_level="9"
-				           message="Demo running with 1.0.x version of logback.&#10;This logback version is obsolete and may contain critical bugs.&#10;Please upgrade to a more recent version (1.2+)"/>
+				           message="Demo running with 1.3 alpha version of logback.&#10;This logback version is unstable and may contain critical bugs.&#10;Please down grade to a previous version (1.2+)"/>
 			</thresholds>
 		</rule>
 		

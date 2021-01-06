@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-		<sheet type="monitoring_events" name="Library checks" critical_tab_color="LIGHT_ORANGE">
+		<sheet type="monitoring_events" name="Library and module checks" critical_tab_color="LIGHT_ORANGE">
 			<!-- Sheet description. Use &#10; as carriage return -->
-			<description>Displays library monitoring events.&#10;Permits to check the library dependency status and to recommend actions like critical patch appliance or library upgrade.&#10;Checks also the presence of libraries (like an agent) and demonstrates the dynamic loading of shared profiles.</description>
+			<description>Displays library and Java module monitoring events.&#10;Permits to check the dependency status and to recommend actions like critical patch appliance or upgrade.&#10;Checks also the presence of modules/libraries (like an agent) and demonstrates the dynamic loading of shared profiles.</description>
 			<display date_format="yyyy/MM/dd HH:mm:ss" grouping="true" group_sorting="false" clean_duplicate_events="false">
 				<ranking>
 					<highlights file="${JEYZER_ANALYZER_CONFIG_DIR}/report/highlights/monitoring-event-ranks.xml"/>
@@ -10,6 +10,7 @@
 			</display>
 			<rules>
 				<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/jar_version_rules.xml"/>
+				<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/module_version_rules.xml"/>
 				<dynamic_rule_sets declared_repository_only="true"/>
 			</rules>
 			<stickers>

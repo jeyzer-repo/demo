@@ -26,6 +26,7 @@
 		<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/mx_aircraft_rules.xml"/>
 		<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/process_card_rules.xml"/>
 		<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/jar_version_rules.xml"/>
+		<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/module_version_rules.xml"/>
 		<all_applicative_rules/>
 		<dynamic_rule_sets declared_repository_only="true"/>
 	</rules>
