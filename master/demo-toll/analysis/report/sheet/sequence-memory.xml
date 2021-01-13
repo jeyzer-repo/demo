@@ -24,8 +24,6 @@
 				<memory_pool                 header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/mp/memory-pool-old-peak-used.xml"/>
 				<memory_pool                 header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/mp/memory-pool-old-after-collection-used.xml"/>
 				
-				<!-- Perm Gen -->
-				<memory_pool                 header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/mp/memory-pool-perm-gen-used.xml"/>
 			</headers>
 		
 			<row_headers>
