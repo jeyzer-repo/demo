@@ -56,19 +56,19 @@
 			</display>
 
 			<charts>
-				<chart title="Memory Old">
-					<serie header="memory_pool-PS Old Gen:usage:used"/>
-					<serie header="memory_pool-PS Old Gen:usage:committed"/>
-					<serie header="memory_pool-PS Old Gen:usage:max"/>
-					<serie header="memory_pool-PS Old Gen:collection:used"/>
+				<chart title="Memory old">
+					<serie header="memory_pool-old-gen-used"/>
+					<serie header="memory_pool-old-gen-committed"/>
+					<serie header="memory_pool-old-gen-max"/>
+					<serie header="memory_pool-old-gen-after-collection"/>
 				</chart>
 				<chart title="Memory Old vs Young">
-					<serie header="memory_pool-PS Old Gen:usage:used"/>
-					<serie header="memory_pool-PS Eden Space:usage:used"/>
+					<serie header="memory_pool-old-gen-used"/>
+					<serie header="memory_pool-eden-used"/>
 				</chart>
 				<chart title="Memory Old vs Heap %" y_axis_max="100">
 					<serie header="memory_pool_heap_ratio"/>
-					<serie header="memory_pool_ratio-PS Old Gen:usage:used-PS Old Gen:usage:max"/>
+					<serie header="memory_pool_ratio-old-gen-usage-%"/>
 				</chart>
 			</charts>
 			
