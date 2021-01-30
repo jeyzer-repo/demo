@@ -50,12 +50,12 @@
 		</rule>
 		
 		<!--  If process command line property value contains the given pattern, generate event. -->
-		<rule name="Process command line property pattern" param_display="JMX remote authentication activated" param="com.sun.management.jmxremote.authenticate" ref="DEM-PCD-004">
+		<rule name="Process command line property pattern" param_display="JMX remote authentication activated" param="com.sun.management.jmxremote.authenticate" ref="DEM-PCD-004" stickers="jmx_remote_access">
 			<narrative>This rule checks if the JMX remote authentication is activated on the command line.</narrative>
 			<thresholds>
 				<threshold type="system pattern" 
 						   count="1"
-				           pattern="false" 
+				           pattern="true" 
 				           level="INFO" 
 				           sub_level="10"
 				           message="JMX remote authentication is activated."/>
