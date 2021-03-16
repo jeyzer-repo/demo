@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-		<sheet type="sequence" name="MX Features (Airliner)" link_type="Mxf">
+		<sheet type="sequence" formats="Advanced JMX,Advanced Agent" name="MX Features (Airliner)" link_type="Mxf">
 		
 			<!-- Sheet description. Use &#10; as carriage return -->
 			<description>Displays the air cruise data on a time line. Data is Jeyzer MX based.</description>
 		
-			<!-- Optional -->
-			<headers formats="Advanced JMX,Advanced Agent">
+			<headers>
 			
 				<!-- Functions : average, min, max, cumulative, variance, standard_deviation -->
 				<math_functions>

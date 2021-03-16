@@ -64,6 +64,7 @@
 				<field name="SSL enabled" property="com.sun.management.jmxremote.ssl"/>
 			</category>
 			<category name="Jeyzer demo manifest attributes" color="RGB-191-202-136">
+				<field name="Publisher active" property="jeyzer.publisher.active"/>
 				<field name="Module" property="jzr.jar.jeyzer-demo.jar.Implementation-Title"/>
 				<field name="Version" property="jzr.jar.jeyzer-demo.jar.Implementation-Version"/>
 				<field name="Build number" property="jzr.jar.jeyzer-demo.jar.Implementation-Build"/>
