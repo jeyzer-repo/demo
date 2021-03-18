@@ -39,7 +39,7 @@
 				<config file="${JEYZER_DEOBSFUCATION_CONFIG_DIR}/@@module@@/@@module@@-@@version@@-@@build_number@@-proguard_map.txt" property_card_mappers="demo-mapper-name, demo-mapper-version, demo-mapper-build-number"/>
 				
 				<!-- Local file -->
-				<config file="${JEYZER_DEOBSFUCATION_CONFIG_DIR}/jeyzer-demo/proguard_map.txt"/>
+				<config file="${JEYZER_DEOBSFUCATION_CONFIG_DIR}/jeyzer-demo/default-proguard_map.txt"/>
 
 			</configurations>
 					
