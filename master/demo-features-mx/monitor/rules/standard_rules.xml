@@ -46,14 +46,14 @@
 		</rule>		
 
 		<!--  If execution regex pattern in the current task is seen more than value, generate event. If user exists, will be added as message prefix -->
-		<rule name="Task execution pattern" extra_info="Dysfunctional code sequence" ref="DEM-STD-004">
+		<rule name="Task execution pattern" extra_info="Suspicious execution pattern requiring patch" ref="DEM-STD-004">
 			<thresholds>
 				<threshold type="action pattern" 
 						   count="1"
 				           pattern="(?s).*DysfunctionalCodeSequence.dysfunctionalCode2.*DysfunctionalCodeSequence.dysfunctionalCode1.*" 
 				           level="CRITICAL"
 				           trust_factor="95"
-				           message="Corruption detected.&#10; Please contact the WWTennis Federation to ask for fix ANTI-CORRUPT-F28."/>
+				           message="Suspicious execution pattern detected.&#10; Please contact the support for the AIR-526 patch."/>
 			</thresholds>
 		</rule>
 
@@ -141,14 +141,14 @@
 		</rule>
 		
 		<!--  If function regex pattern in the current task is seen more than value, generate event. Pattern is regex  -->
-		<rule name="Function pattern" extra_info="Ping pong players" ref="DEM-STD-012">
+		<rule name="Function pattern" extra_info="Plane lights" ref="DEM-STD-012">
 			<thresholds>
 				<threshold type="action pattern" 
 						   count="1"
-				           pattern="(ping)|(pong)" 
+				           pattern="(Left wing yellow light)|(Right wing green light)" 
 				           level="INFO"
 				           sub_level="7" 
-				           message="Ping-pong players are active !!"/>
+				           message="Planes have active lights"/>
 			</thresholds>
 		</rule>
 		
