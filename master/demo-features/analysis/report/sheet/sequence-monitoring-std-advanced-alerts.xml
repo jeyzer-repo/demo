@@ -43,6 +43,34 @@
 				
 			</headers>
 			
+			<!-- Optional -->
+			<headers formats="JFR Recording">
+			
+				<!-- Functions : average, min, max, cumulative, variance, standard_deviation -->
+				<math_functions>
+					<average/>
+					<max/>
+				</math_functions>
+			
+				<!-- Headers -->
+				<thread_counter        header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/thread-counter.xml"/>
+				<action_counter        header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/action-counter.xml"/>
+				<deadlock_counter      header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/deadlock-counter.xml"/>
+
+				<section_delimiter title="CPU" color="RGB-201-208-168"/>
+				<system_cpu           header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/system-cpu.xml"/>
+				<process_cpu          header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/process-cpu.xml"/>
+				
+				<section_delimiter title="Memory" color="RGB-201-208-168"/>
+				<!-- Heap -->
+				<memory_pool_heap header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/memory-pool-heap.xml"/>
+				<memory_pool_heap_ratio header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/memory-pool-heap-ratio.xml"/>
+				<!-- Garbage collection -->
+				<garbage_collection_time_percent header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/gc/gc-all-time-percent.xml"/>
+				<garbage_collection_health_indication header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/gc/gc-last-all-health-indication.xml"/>
+				
+			</headers>
+			
 			<headers formats="Jstack 1.6+,Jstack 1.6+ Hung,JMX,Jstack 1.5">
 			
 				<!-- Functions : average, min, max, cumulative, variance, standard_deviation -->
