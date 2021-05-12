@@ -11,6 +11,7 @@
 			<rules>
 				<rule_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/rules/process_card_rules.xml"/>
 				<rule_set file="${JEYZER_ANALYZER_CONFIG_DIR}/monitor/rules/process_card_rules.xml"/>
+				<rule_set file="${JEYZER_ANALYZER_CONFIG_DIR}/monitor/rules/jvm_flag_rules.xml"/>
 			</rules>
 			<stickers>
 				<sticker_set file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/monitor/stickers/demo_stickers.xml"/>
