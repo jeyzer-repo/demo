@@ -86,7 +86,7 @@
 				
 			</headers>
 			
-			<headers formats="IBM core dump">
+			<headers formats="IBM core dump,TDA">
 			
 				<!-- Functions : average, min, max, cumulative, variance, standard_deviation -->
 				<math_functions>

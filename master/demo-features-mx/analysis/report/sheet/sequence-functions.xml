@@ -56,7 +56,7 @@
 				<pool_thread_action_percent name="Demo thread pool active %" regex="^Demo thread.*" threshold="100" color="RED" />
 				<pool_thread_counter name="Demo thread pool all" regex="^Demo thread.*" threshold="50" color="RED" />
 			</headers>
-			<headers formats="IBM core dump, default">
+			<headers formats="IBM core dump,TDA,default">
 				<thread_counter        header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/thread-counter.xml"/>
 				<action_counter        header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/action-counter.xml"/>
 				<recording_snapshot_file_name/>
