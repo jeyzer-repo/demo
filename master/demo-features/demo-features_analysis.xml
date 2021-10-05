@@ -77,6 +77,9 @@
 			<!-- Jeyzer file name pattern : time stamp is taken out from file name as well as the time zone. -->
 			<!-- File name pattern is snap-<time-zone-origin : p or c or jzr>-<date format with regional time zone>.jzr  -->
 		    <file_jzr_pattern/>
+		    
+		    <!-- JFR file in zip file -->
+			<file_regex_pattern     pattern="\.jfr$"/>
 					
 		</file_patterns>
 		
