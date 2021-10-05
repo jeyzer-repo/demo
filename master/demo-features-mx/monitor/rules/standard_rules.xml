@@ -174,6 +174,17 @@
 			</thresholds>
 		</rule>
 		
+		<!--  If number of recording snapshots or thread dumps is greater or equal to (or [operator]) to [value], generate event. -->
+		<rule name="Recording size" extra_info="Multiple recording snapshots" ref="DEM-STD-015">
+			<thresholds>
+				<threshold type="system value"
+						   count="1" 
+				           level="INFO"
+				           value="2"
+				           message="Recording contains multiple snapshots."/>
+			</thresholds>
+		</rule>
+		
 	</rules>
 
 </monitor>
