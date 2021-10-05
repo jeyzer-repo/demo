@@ -303,6 +303,17 @@
 				           message="Demo is running without the XYZ Java module which is required for the ABC functionality."/>
 			</thresholds>
 		</rule>
+		
+		<!--  If number of recording snapshots or thread dumps is greater or equal to (or [operator]) to [value], generate event. -->
+		<rule name="Recording size" extra_info="Multiple recording snapshots" ref="LAB-SYS-027">
+			<thresholds>
+				<threshold type="system value"
+						   count="1" 
+				           level="INFO"
+				           value="2"
+				           message="Demo recording contains multiple snapshots."/>
+			</thresholds>
+		</rule>
 
 	</rules>
 
