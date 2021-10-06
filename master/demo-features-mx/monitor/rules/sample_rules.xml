@@ -486,12 +486,11 @@
 		</rule>
 				
 		<!--  If number of recording snapshots or thread dumps is lower or equal to [value], generate event. -->
-		<rule name="Recording size" extra_info="Small recording" ref="JZR-SAMPLE-033">
+		<rule name="Recording size" extra_info="Small recording" operator="lower_or_equal" ref="JZR-SAMPLE-033">
 			<thresholds>
 				<threshold type="system value"
 						   count="1" 
 				           level="INFO"
-				           operator="lower_or_equal"
 				           value="1"
 				           message="Recording is too small : analyzing a single thread dumps is often no sufficent.&#10;Please collect periodic thread dumps : it will permit to get the cinematic of the issues.&#10;The Java Flight Recorder (using the Jeyzer profile for JFR) or the Jeyzer Recorder are the perfect candidates."/>
 			</thresholds>
