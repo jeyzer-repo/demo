@@ -62,6 +62,8 @@
 
 		<sheet sheet_config_file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/analysis/report/sheet/sequence-mx-features.xml"/>
 		
+		<sheet sheet_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/sheet/group-sequence/group-sequence-stack-groups.xml"/>
+		
 		<!--  display the merged actions and their related stacks as a tree -->
 		<sheet sheet_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/sheet/profiling/action-profiling-with-graph.xml"/>
 
