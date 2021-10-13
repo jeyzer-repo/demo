@@ -40,7 +40,7 @@
 			<!--   Those stack patterns are typically one or several application package names, which must be unique -->
 			<!--   Optional. If not defined, the current master profile cannot participate in a profile redirection phase -->
 			<id_patterns>
-				<id_pattern value="org.my_application"/>
+				<id_pattern value="org.jeyzer.demo"/>
 			</id_patterns>
 			
 		</profile_redirection>
