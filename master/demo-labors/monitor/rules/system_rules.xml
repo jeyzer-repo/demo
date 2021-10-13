@@ -305,7 +305,7 @@
 		</rule>
 		
 		<!--  If number of recording snapshots or thread dumps is greater or equal to (or [operator]) to [value], generate event. -->
-		<rule name="Recording size" extra_info="Multiple recording snapshots" ref="LAB-SYS-027">
+		<rule name="Recording size" extra_info="Multiple recording snapshots" stickers="recording_size" ref="LAB-SYS-027">
 			<thresholds>
 				<threshold type="system value"
 						   count="1" 
