@@ -743,7 +743,7 @@
 		
 		<!--  If process card property value contains the given pattern, generate event. -->
 		<rule name="Process card property pattern" param_display="Diagnosis JVM flag check" param="jzr.jdk.flag.HeapDumpPath" stickers="jvm_flag" ref="LAB-RUN-061">
-			<narrative>This rule checks a JVM flag vale.</narrative>
+			<narrative>This rule checks a JVM flag value.</narrative>
 			<thresholds>
 				<threshold type="system pattern" 
 						   count="1"
