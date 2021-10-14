@@ -1,4 +1,4 @@
-<profile name="Demo-shared" version="2.5">
+<profile name="Demo-shared" version="2.6">
   <patterns>
     <!-- Shared library relies fully on the Jeyzer annotations -->
     <functions>
