@@ -15,7 +15,7 @@
 		<set id="base-shared-deps" profiles="jeyzer, java"/>
 	</dependencies>
 
-		<!-- Analysis patterns. Load order : top to bottom. Pattern rules of the top pattern set apply first. Dynamic patterns are loaded at last -->
+	<!-- Analysis patterns. Load order : top to bottom. Pattern rules of the top pattern set apply first. Dynamic patterns are loaded at last -->
 	<patterns>
 
 		<!-- Applicative patterns. Local path or remote url (http, https, ftp) -->
@@ -34,10 +34,19 @@
 	<discovery>
 		
 		<!-- Profile redirect allows to load another profile instead of the current one. Suitable for generic profiles -->
-		<profile_redirection enabled="false"/>
+		<profile_redirection enabled="false">
+		
+			<!-- Profile id patterns define the remarkable applicative stack patterns which are used in the profile redirection. Suitable for production profiles  -->
+			<!--   Those stack patterns are typically one or several application package names, which must be unique -->
+			<!--   Optional. If not defined, the current master profile cannot participate in a profile redirection phase -->
+			<id_patterns>
+				<id_pattern value="org.jeyzer.demo.tollbooth"/>
+			</id_patterns>
+			
+		</profile_redirection>
 		
 		<!-- Apply rules based keywords provided by the end user -->
-		<discovery_rules enabled="false"/>
+		<discovery_rules enabled="fase"/>
 		
 	</discovery>
 
