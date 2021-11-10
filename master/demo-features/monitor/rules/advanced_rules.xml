@@ -190,6 +190,19 @@
 			</thresholds>
 		</rule>
 		
+		<!--  If garbage collector name (old or young) matches the given pattern, generate event. -->
+		<rule name="Garbage collector name" extra_info="Serial GC usage" ref="DEM-ADV-016" stickers="performance">
+			<narrative>This rule detects if the serial garbage collector is used.</narrative>
+			<thresholds>
+				<threshold type="system pattern" 
+						   count="1"
+				           pattern="Copy" 
+				           level="WARNING"
+						   sub_level="10"
+				           message="The serial garbage collector is used through the Copy GC : make sure it is appropriate.&#10;This GC halts any processing while running (stop the world pause) and can therefore impact the performance.&#10;The serial GC applies usually on single processor machines (aka client machines)&#10;It should be used on apps which manipulate small amounts of data.&#10;Prefer the G1 or PS garbage collectors."/>
+			</thresholds>
+		</rule>
+		
 	</rules>
 
 </monitor>

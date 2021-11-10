@@ -124,8 +124,10 @@
 	<sticker name="process_module_name"                		type="property card" property="demo.job.process_module_name"               		pattern="true"/>
 	<sticker name="process_module_name_absence"             type="property card" property="demo.job.process_module_name_absence"            pattern="true"/>
 	
-	<sticker name="jvm_flag"             type="property card" property="demo.job.jvm_flag"            pattern="true"/>
+	<sticker name="jvm_flag"             		type="property card" property="demo.job.jvm_flag"            		pattern="true"/>
 	
-	<sticker name="recording_size"       type="property card" property="demo.job.recording_size"      pattern="true"/>
+	<sticker name="recording_size"       		type="property card" property="demo.job.recording_size"      		pattern="true"/>
+	
+	<sticker name="garbage_collector_name"      type="property card" property="demo.job.garbage_collector_name"     pattern="true"/>
 
 </stickers>

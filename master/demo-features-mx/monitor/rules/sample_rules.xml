@@ -811,6 +811,20 @@
 				           message="Recording writing takes time. Check the disk controller state."/>
 			</thresholds>
 		</rule>
+		
+		<!--  If garbage collector name (old or young) matches the given pattern, generate event. -->
+		<rule name="Garbage collector name" extra_info="Serial GC usage" ref="SAMPLE-121">
+			<narrative>This rule detects if the serial garbage collector is used.</narrative>
+			<thresholds>
+				<threshold type="system pattern" 
+						   count="1"
+				           pattern="Copy" 
+				           level="WARNING"
+						   sub_level="10"
+				           message="The serial garbage collector is used through the Copy GC : make sure it is appropriate."/>
+			</thresholds>
+		</rule>
+		
 
 		<!-- ************************************************************************ -->
 		<!--                        APPLICATIVE RULES                                 -->
