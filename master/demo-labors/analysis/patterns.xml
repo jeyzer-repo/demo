@@ -132,6 +132,7 @@
       <operation name="Problematic section" pattern="org.jeyzer.demo.labors.job.executable.impl.SessionExecutionPatternJob.problematicSection"/>
       <operation name="Oracle transaction commit" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeParallelContentionJob.oracleTransactionCommit" type="Oracle"/>
       <operation name="Unsecured operation method" pattern="org.jeyzer.demo.labors.job.executable.impl.OperationPresenceJob.unsecuredOperationMethod"/>
+      <operation name="Undesired contention type" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypePresenceJob.undesiredContentionType" type="External process fork"/>
       <operation name="CPU creation : do mathematical operations" pattern="org.jeyzer.demo.features.tasks.CPUConsumingTask.consumeCPU"/>
       <operation name="Wait for message payload reception" pattern="org.jeyzer.demo.labors.job.executable.impl.ContentionTypeGlobalPercentageJob.waitForMessagePayloadReception" type="Waiting"/>
       <operation name="Wait for pool resource" pattern="org.jeyzer.demo.labors.job.executable.impl.FunctionAndOperationParallelContentionJob.waitForPoolResource"/>

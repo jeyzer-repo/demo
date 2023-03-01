@@ -754,6 +754,17 @@
 			</thresholds>
 		</rule>
 		
+		<!--  If the contention type is detected across current session, generate event. -->
+		<rule name="Contention type presence" param_display="Undesired contention type detected" param="Undesired contention type" stickers="contention_type_presence" ref="LAB-RUN-062">
+			<narrative>This rule detects any undesired contention type.</narrative>
+			<thresholds>
+				<threshold type="system signal" 
+				           level="INFO"
+				           sub_level="8"
+				           message="Undesired contention type has been detected."/>
+			</thresholds>
+		</rule>
+		
 	</rules>
 
 </monitor>

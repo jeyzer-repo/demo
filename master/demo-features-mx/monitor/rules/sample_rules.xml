@@ -495,6 +495,17 @@
 				           message="Recording is too small : analyzing a single thread dumps is often no sufficent.&#10;Please collect periodic thread dumps : it will permit to get the cinematic of the issues.&#10;The Java Flight Recorder (using the Jeyzer profile for JFR) or the Jeyzer Recorder are the perfect candidates."/>
 			</thresholds>
 		</rule>
+		
+		<!--  If the contention type is detected across current session, generate event. -->
+		<rule name="Contention type presence" param_display="External process execution wait" param="External process execution" ref="JZR-SAMPLE-034" stickers="performance">
+			<narrative>This rule detects any external process execution wait.</narrative>
+			<thresholds>
+				<threshold type="system signal" 
+				           level="INFO"
+				           sub_level="7"
+				           message="Some forked process execution is detected.&#10; It may affect the performance of your Java application if this external process is too slow.&#10;  Please make sure it does not impact the application workflow."/>
+			</thresholds>
+		</rule>
 
 		<!-- ************************************************************************ -->
 		<!--                              ADVANCED RULES                              -->
