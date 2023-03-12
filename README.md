@@ -35,5 +35,5 @@ The JEYZER_MASTER_PROFILES_DIR_ROOTS variable is by default set in the web/apach
 License
 -------
 
-Copyright 2022 Jeyzer.\
+Copyright 2023 Jeyzer.\
 Licensed under the [Mozilla Public License, Version 2.0](https://www.mozilla.org/media/MPL/2.0/index.815ca599c9df.txt)
