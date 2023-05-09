@@ -328,6 +328,16 @@
 			</thresholds>
 		</rule>
 
+		<!--  If shared profile is detected across current session, generate event. -->
+		<rule name="Shared profile" param_display="Demo-shared" param="Demo-shared" stickers="shared_profile" ref="LAB-SYS-029">
+			<narrative>This rule detects the Demo-shared library usage.</narrative>
+			<thresholds>
+				<threshold type="system signal" 
+				           level="INFO" 
+				           message="The Demo-shared library is detected."/>
+			</thresholds>
+		</rule>
+
 	</rules>
 
 </monitor>

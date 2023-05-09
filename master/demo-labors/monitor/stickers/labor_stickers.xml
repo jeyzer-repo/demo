@@ -130,5 +130,7 @@
 	<sticker name="recording_size"       		type="property card" property="demo.job.recording_size"      		pattern="true"/>
 	
 	<sticker name="garbage_collector_name"      type="property card" property="demo.job.garbage_collector_name"     pattern="true"/>
+	
+	<sticker name="shared_profile"      		type="property card" property="demo.job.shared_profile"     		pattern="true"/>
 
 </stickers>

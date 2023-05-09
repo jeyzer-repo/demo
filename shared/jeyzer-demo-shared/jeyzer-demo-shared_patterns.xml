@@ -1,8 +1,9 @@
-<profile name="Demo-shared" version="2.7">
+<profile name="Demo-shared" version="3.0">
   <patterns>
     <!-- Shared library relies fully on the Jeyzer annotations -->
     <functions>
       <function name="Load shared demo library" pattern="org.jeyzer.demo.shared.DemoSharedLoader.loadSharedDemoLibrary"/>
+      <function name="Publish" pattern="org.jeyzer.demo.shared.DemoSharedPublisher.publish"/>
     </functions>
     <operations/>
     <executors/>

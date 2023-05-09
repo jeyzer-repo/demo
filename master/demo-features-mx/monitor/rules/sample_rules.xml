@@ -492,7 +492,7 @@
 						   count="1" 
 				           level="INFO"
 				           value="1"
-				           message="Recording is too small : analyzing a single thread dumps is often no sufficent.&#10;Please collect periodic thread dumps : it will permit to get the cinematic of the issues.&#10;The Java Flight Recorder (using the Jeyzer profile for JFR) or the Jeyzer Recorder are the perfect candidates."/>
+				           message="Recording is too small : analyzing a single thread dump is often no sufficent.&#10;Please collect periodic thread dumps : it will permit to get the cinematic of the issues.&#10;The Java Flight Recorder (using the Jeyzer profile for JFR) or the Jeyzer Recorder are the perfect candidates."/>
 			</thresholds>
 		</rule>
 		
@@ -504,6 +504,27 @@
 				           level="INFO"
 				           sub_level="7"
 				           message="Some forked process execution is detected.&#10; It may affect the performance of your Java application if this external process is too slow.&#10;  Please make sure it does not impact the application workflow."/>
+			</thresholds>
+		</rule>
+
+		<!--  If there are no detected actions, with the exception of principal functions defined with the given pattern, generate event. -->
+		<rule name="Quiet activity" extra_info="Standard inactivity detection" ref="JZR-SAMPLE-035">
+			<thresholds>
+				<threshold type="system pattern" 
+						   count="1"
+				           pattern="JFR publish events|JFR platform stop recording|JFR start recording|JFR stop recording" 
+				           level="INFO"
+				           message="No internal activity of interest is detected within the provided recording.&#10; You may either look at other processes in case of incident troubleshooting in a distributed system or increase the logging level of your application if the incident is sudden."/>
+			</thresholds>
+		</rule>
+		
+		<!--  If shared profile is detected across current session, generate event. -->
+		<rule name="Shared profile" param_display="Jaeger" param="Jaeger" stickers="code_quality" ref="JZR-SAMPLE-036">
+			<narrative>This rule detects the Jaeger client library usage.</narrative>
+			<thresholds>
+				<threshold type="system signal" 
+				           level="INFO" 
+				           message="The Jaeger tracing client library is deprecated since 2022&#10;The Open Telemetry SDK must now be used&#10;Please inform the R&#38;D to plan the adequate migration to Open Telemetry SDK."/>
 			</thresholds>
 		</rule>
 
@@ -833,6 +854,38 @@
 				           level="WARNING"
 						   sub_level="10"
 				           message="The serial garbage collector is used through the Copy GC : make sure it is appropriate."/>
+			</thresholds>
+		</rule>
+		
+		<!--  If percentage of open file descriptors is higher than [value] ms for [count] or [time], generate event. Applicable only on Unix -->
+		<rule name="Open file descriptor percentage" ref="SAMPLE-122" stickers="unix">
+			<thresholds>
+				<threshold type="session value"
+						   count="1"
+						   value="70" 
+				           level="WARNING"
+				           message="The process is handling a high number of open file descriptors and may reach the system maximum limit.&#10;Please increase the max open file descriptors limit on the system, otherwise the Too Many Open Files exception may occur (or in any other started with the same user).&#10;You may also ask the development team to check if the application is not accessing intensively system resources in an abnormal way."/>
+				<threshold type="global value"
+						   count="3"
+						   value="70" 
+				           level="WARNING"
+				           message="The process is handling a high number of open file descriptors and may reach the system maximum limit.&#10;Please increase the max open file descriptors limit on the system, otherwise the Too Many Open Files exception may occur (or in any other started with the same user).&#10;You may also ask the development team to check if the application is not accessing intensively system resources in an abnormal way."/>
+			</thresholds>
+		</rule>
+
+		<!--  If number of open file descriptors is higher than [value] ms for [count] or [time], generate event. Applicable only on Unix -->
+		<rule name="Open file descriptor number" ref="SAMPLE-123" stickers="unix">
+			<thresholds>
+				<threshold type="session value"
+						   count="1"
+						   value="3000" 
+				           level="WARNING"
+				           message="The process is handling a high number of open file descriptors.&#10;Make sure the max open file descriptors limit is sized enough on the system, otherwise the Too Many Open Files exception may occur (or in any other started with the same user)."/>
+				<threshold type="global value"
+						   count="1"
+						   value="3000" 
+				           level="WARNING"
+				           message="The process is handling a high number of open file descriptors.&#10;Make sure the max open file descriptors limit is sized enough on the system, otherwise the Too Many Open Files exception may occur (or in any other started with the same user)."/>
 			</thresholds>
 		</rule>
 		
