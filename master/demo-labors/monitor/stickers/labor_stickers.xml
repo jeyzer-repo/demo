@@ -15,6 +15,7 @@
 	<sticker name="function_presence"         type="property card" property="demo.job.function_presence"        pattern="true"/>
 	<sticker name="operation_presence"        type="property card" property="demo.job.operation_presence"       pattern="true"/>
 	<sticker name="contention_type_presence"  type="property card" property="demo.job.contention_type_presence" pattern="true"/>
+	<sticker name="executor_presence"         type="property card" property="demo.job.executor_presence"        pattern="true"/>
 	
 	<sticker name="function_pattern"          type="property card" property="demo.job.function_pattern"         pattern="true"/>
 	<sticker name="operation_pattern"         type="property card" property="demo.job.operation_pattern"        pattern="true"/>

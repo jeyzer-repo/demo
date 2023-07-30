@@ -765,6 +765,17 @@
 			</thresholds>
 		</rule>
 		
+		<!--  If the executor is detected across current session, generate event. -->
+		<rule name="Executor presence" param_display="Important executor detected" param="Important executor" stickers="executor_presence" ref="LAB-RUN-063">
+			<narrative>This rule detects any important executor.</narrative>
+			<thresholds>
+				<threshold type="system signal" 
+				           level="INFO"
+				           sub_level="8"
+				           message="Important demo executor has been detected."/>
+			</thresholds>
+		</rule>
+		
 	</rules>
 
 </monitor>
