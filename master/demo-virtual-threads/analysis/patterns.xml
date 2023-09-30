@@ -1,0 +1,98 @@
+<profile name="Demo-virtual-threads" version="3.0">
+  <!-- 
+			Pattern rule appliance by priority :
+			0 - locker (1004)
+			1 - stack_size_interest (1003)
+			2 - exclude_thread_name (1002)
+			3 - exclude (1001)
+			4 - function  (6)
+			5 - function_discovery  (5)
+			6 - executor  (4)
+			7 - executor_thread_name (3)
+			8 - operation (2)
+			9 - operation_discovery (1)
+			Exclude, function, operation and executor patterns priorities can be overriden by pattern attribute.
+	 	-->
+  <patterns>
+    <!-- In pattern attribute, use semicolon separator to declare multiple line patterns -->
+    <functions>
+      <!-- Features demo -->
+      <function name="Test" pattern="org.jeyzer.demo.virtualthreads.ThousandsVirtualThreads.introduction"/>
+      <function name="Test" pattern="org.jeyzer.demo.virtualthreads.ThousandsVirtualThreadsCPU.introduction"/>
+	  <function name="Test" pattern="org.jeyzer.demo.virtualthreads.ThousandsVirtualThreadsCPUMultiExecutors.introduction"/>
+      <function name="Test" pattern="org.jeyzer.demo.virtualthreads.ReentrantLockSequence.introduction"/>
+      <function name="Test" pattern="org.jeyzer.demo.virtualthreads.ReentrantLockDeadlockSequence.introduction"/>
+      <function name="Test" pattern="org.jeyzer.demo.virtualthreads.ClassicalSynchronization.introduction"/>
+	  <function name="Lock - Image Downloader test" pattern="org.jeyzer.demo.virtualthreads.ImageDownloader.introduction"/>
+	  <function name="Lock - Image Downloader test" pattern="org.jeyzer.demo.virtualthreads.ImageDownloader2.introduction"/>
+	  <function name="Image download" pattern="org.jeyzer.demo.virtualthreads.ImageDownloader.saveImage"/>
+	  <function name="Image download" pattern="org.jeyzer.demo.virtualthreads.ImageDownloader2.lambda$saveImageTask"/>
+	  <function name="VT sleep" pattern="org.jeyzer.demo.virtualthreads.ThousandsVirtualThreads.work"/>
+	  <function name="VT sleep" pattern="org.jeyzer.demo.virtualthreads.CPUWorker.sleep"/>
+	  <function name="VT sleep" pattern="org.jeyzer.demo.virtualthreads.TestSequence.sleep;org.jeyzer.demo.virtualthreads.ThousandsVirtualThreadsCPU.work"/>
+	  <function name="Consume CPU" pattern="org.jeyzer.demo.virtualthreads.CPUWorker.consumeCPU2"/>
+	  <function name="Consume CPU" pattern="org.jeyzer.demo.virtualthreads.CPUWorker.consumeCPU1"/>
+	  <function name="Consume CPU" pattern="org.jeyzer.demo.virtualthreads.ThousandsVirtualThreadsCPU.consumeCPU"/>
+    </functions>
+    <operations>
+      <!-- Operation patterns apply for the first 20 lines of the thread dump                	 -->
+      <!-- Exception : patterns ending with '.' apply for the first 2 lines of the thread dump -->
+      <!-- Features demo -->
+      <operation name="Massive - 10 thousands virtual threads created" pattern="org.jeyzer.demo.virtualthreads.ThousandsVirtualThreads.introduction"/>
+      <operation name="Massive - One thousand virtual threads created with CPU burst" pattern="org.jeyzer.demo.virtualthreads.ThousandsVirtualThreadsCPU.introduction"/>
+      <operation name="Massive - Two thousands virtual threads created with CPU burst in 2 executors" pattern="org.jeyzer.demo.virtualthreads.ThousandsVirtualThreadsCPUMultiExecutors.introduction"/>
+      <operation name="Lock - Reentrant Lock test" pattern="org.jeyzer.demo.virtualthreads.ReentrantLockSequence.introduction"/>
+      <operation name="Lock - Reentrant Lock with deadlock test" pattern="org.jeyzer.demo.virtualthreads.ReentrantLockDeadlockSequence.introduction"/>
+      <operation name="Lock - Classic synchro test" pattern="org.jeyzer.demo.virtualthreads.ClassicalSynchronization.introduction"/>
+      <operation name="Massive - 5000 images download - 100 native executor and X virtual executor" pattern="org.jeyzer.demo.virtualthreads.ImageDownloader.introduction"/>
+      <operation name="Massive - 5000 images download - 100 native executor and X virtual executor" pattern="org.jeyzer.demo.virtualthreads.ImageDownloader2.introduction"/>
+    </operations>
+    <executors>
+      <!-- Executor patterns must be available within the 20 first lines of the thread dump -->
+      <executor name="1000 VT CPU test" pattern="ThousandsVirtualThreadsCPU.executeSequence"/>
+      <executor name="1000 VT sleep test" pattern="ThousandsVirtualThreads.executeSequence"/>
+	  <executor name="2000 VT sleep test" pattern="ThousandsVirtualThreadsCPUMultiExecutors.executeSequence"/>
+      <executor name="Reentrant lock test" pattern="ReentrantLockSequence.executeSequence"/>
+      <executor name="Reentrant deadlock test" pattern="ReentrantLockDeadlockSequence.executeSequence"/>
+      <executor name="Classic synchro test" pattern="ClassicalSynchronization.executeSequence"/>
+      <executor name="Image download test" pattern="ImageDownloader2.executeSequence"/>
+      <executor name="Main" pattern="org.jeyzer.demo.virtualthreads.DemoVT21.main"/>
+      <!-- We take a shortcut -->
+      <executor name="Virtual thread" pattern="java.lang.VirtualThread.run"/>
+      <executor name="Native thread" pattern="java.lang.Thread.run"/>
+    </executors>
+    <executor_thread_names>
+      <!-- Executor pattern based on the thread name. Regular expression recommended -->
+      <!--executor_thread_name pattern="thread pattern" name="Thread type name"/-->
+      <!--executor_thread_name pattern_regex="regex" name="Thread type name"/-->
+    </executor_thread_names>
+    <excludes>
+      <!-- If stack size is equal or below the limit (optional size attribute), thread stack is excluded -->
+      <exclude name="Jcmd JSON parser" pattern="java.lang.Thread.getStackTrace;jdk.internal.vm.ThreadDumper.dumpThreadToJson"/>
+	  <exclude name="Jcmd TXT parser" pattern="jdk.internal.vm.ThreadDumper.dumpThreads;jdk.internal.vm.ThreadDumper.dumpThreadsToFile"/>
+      <exclude name="ThousandsVirtualThreads sleep" pattern="java.lang.Thread.sleep;java.util.concurrent.TimeUnit.sleep;org.jeyzer.demo.virtualthreads.ThousandsVirtualThreads.virtualThreadsByThousandsSequence"/>
+      <exclude name="ThousandsVirtualThreadsCPU sleep" pattern="java.lang.Thread.sleep;java.util.concurrent.TimeUnit.sleep;org.jeyzer.demo.virtualthreads.ThousandsVirtualThreadsCPU.virtualThreadsByThousandsSequence"/>
+
+      <exclude name="Start wait" pattern="java.lang.Thread.sleep;org.jeyzer.demo.virtualthreads.TestSequence.sleep;org.jeyzer.demo.virtualthreads.DemoVT21.main"/>
+      <exclude name="Massive CPU thread join" pattern="java.util.concurrent.CountDownLatch.await;java.util.concurrent.ThreadPerTaskExecutor.awaitTermination;java.util.concurrent.ThreadPerTaskExecutor.awaitTermination;java.util.concurrent.ThreadPerTaskExecutor.close;org.jeyzer.demo.virtualthreads.ThousandsVirtualThreadsCPU.virtualThreadsByThousandsSequence"/>
+      <exclude name="Massive CPU main sleep" pattern="java.lang.Thread.sleep;org.jeyzer.demo.virtualthreads.TestSequence.sleep;org.jeyzer.demo.virtualthreads.ThousandsVirtualThreadsCPU.virtualThreadsByThousandsSequence"/>
+      <exclude name="Massive multi CPU main join" pattern="java.lang.Thread.join;org.jeyzer.demo.virtualthreads.ThousandsVirtualThreadsCPUMultiExecutors.virtualThreadsByThousandsSequence"/>
+      <exclude name="Massive multi CPU thread sleep" pattern="java.util.concurrent.TimeUnit.sleep;org.jeyzer.demo.virtualthreads.CPUWorker.run"/>
+      <exclude name="Massive multi CPU thread close" pattern="java.util.concurrent.CountDownLatch.await;java.util.concurrent.ThreadPerTaskExecutor.awaitTermination;java.util.concurrent.ThreadPerTaskExecutor.awaitTermination;java.util.concurrent.ThreadPerTaskExecutor.close"/>
+      <exclude name="Massive main sleep" pattern="java.lang.Thread.sleep;org.jeyzer.demo.virtualthreads.TestSequence.sleep;org.jeyzer.demo.virtualthreads.ThousandsVirtualThreads.virtualThreadsByThousandsSequence"/>
+      <exclude name="ReentrantLockdeadlockSequence sleep" pattern="java.lang.Thread.sleep;org.jeyzer.demo.virtualthreads.ReentrantLockDeadlockSequence.virtualReentrantLockdeadlockSequence"/>
+      <exclude name="ReentrantLockSequence join" pattern="java.lang.Thread.join;java.lang.Thread.join;org.jeyzer.demo.virtualthreads.ReentrantLockSequence.virtualReentrantLockSequence"/>
+      <exclude name="ClassicalSynchronization join" pattern="java.lang.Thread.join;org.jeyzer.demo.virtualthreads.ClassicalSynchronization.virtualClassicalSynchronizationSequence"/>
+      <exclude name="ImageDownloader main get" pattern="java.util.concurrent.locks.LockSupport.park;java.util.concurrent.FutureTask.awaitDone;java.util.concurrent.FutureTask.get;org.jeyzer.demo.virtualthreads.ImageDownloader.downloadWithThreadPool"/>
+      <exclude name="ImageDownloader main get" pattern="java.util.concurrent.locks.LockSupport.park;java.util.concurrent.FutureTask.awaitDone;java.util.concurrent.FutureTask.get;org.jeyzer.demo.virtualthreads.ImageDownloader2.downloadWithThreadPool"/>
+      <exclude name="ImageDownloader Future task" pattern="java.util.concurrent.FutureTask.awaitDone;java.util.concurrent.FutureTask.get;org.jeyzer.demo.virtualthreads.ImageDownloader2.readImages"/>
+      <exclude name="ImageDownloader StructuredTaskScope join" pattern="java.util.concurrent.StructuredTaskScope.join;org.jeyzer.demo.virtualthreads.ImageDownloader2.downloadWithStructuredTaskScope"/>
+    </excludes>
+    <exclude_thread_names>
+      <!-- Exclude stack based on thread name. Regular expression recommended -->
+      <!-- If stack size is equal or below the limit (optional size attribute), thread stack is excluded -->
+      <!-- exclude_thread_name name="RMI thread" pattern_regex="RMI TCP.*"/-->
+	  <exclude_thread_name name="Thread CPU native" pattern="Worker CPU native"/>
+    </exclude_thread_names>
+  </patterns>
+</profile>
