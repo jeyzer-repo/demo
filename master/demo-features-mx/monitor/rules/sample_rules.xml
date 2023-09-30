@@ -536,8 +536,39 @@
 				           level="INFO"
 				           message="Java virtual threads are used.&#10; In case of massive usage, you may monitor closely the VM memory."/>
 			</thresholds>
-		</rule>		
+		</rule>
+		
+		<!--  If number of threads greater than [value], generate event -->
+		<rule name="Global virtual thread limit" ref="JZR-SAMPLE-038">
+			<thresholds>
+				<threshold type="global value" 
+						   count="20"
+				           value="30000"
+				           level="WARNING" 
+				           message="High number of virtual threads created (30 000+). Please send the Jeyzer recording to your Support service and monitor closely the application."/>
+   			</thresholds>
+		</rule>
 
+		<!--  If virtual thread usage is detected, generate event. -->
+		<rule name="Virtual thread presence" ref="JZR-SAMPLE-039">
+			<thresholds>
+				<threshold type="system signal"
+				           level="INFO" 
+				           message="Java virtual threads are used.&#10; In case of massive usage, you may monitor closely the VM memory and CPU."/>
+			</thresholds>
+		</rule>
+		
+		<!--  If unmounted virtuals remain for [count] snapshots or [time] generate event -->
+		<!--    Count must be higher than 8. Time must be higher than 8 x recording period -->
+		<rule name="Virtual thread leak" ref="JZR-SAMPLE-040">
+			<thresholds>
+				<threshold 	type="stack signal with context"
+							count="10" 
+							level="WARNING" 
+							message="Virtual threads not released after some time. These threads could have leak or interacting with very slow backend."/>
+			</thresholds>
+		</rule>
+		
 		<!-- ************************************************************************ -->
 		<!--                              ADVANCED RULES                              -->
 		<!-- ************************************************************************ -->
@@ -899,6 +930,21 @@
 			</thresholds>
 		</rule>
 		
+		<!--  If Virtual threads CPU usage is greater than [value] % for [count] or [time], generate event. -->
+		<rule name="Virtual threads CPU consuming" ref="SAMPLE-124" stickers="virtual-threads">
+			<thresholds>
+				<threshold type="global value"
+						   time="60s"
+						   value="90" 
+				           level="CRITICAL"
+				           message="Virtual threads are highly CPU consuming.&#10;You sould review with the developer team the underlying tasks to be less CPU consuming."/>
+				<threshold type="global value"
+						   time="120s"
+						   value="60"
+				           level="WARNING" 
+				           message="Virtual threads are CPU consuming.&#10;You may review with the developer team the underlying tasks to be less CPU consuming."/>
+			</thresholds>
+		</rule>
 
 		<!-- ************************************************************************ -->
 		<!--                        APPLICATIVE RULES                                 -->
