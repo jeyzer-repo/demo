@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-		<sheet type="sequence" name="Memory" link_type="Mem" formats="Advanced JMX,Advanced Agent">
+		<sheet type="sequence" name="Memory" link_type="Mem" formats="Advanced JMX,Advanced Agent,Advanced VT Agent">
 		
 			<!-- Optional -->
-			<headers formats="Advanced JMX,Advanced Agent">
+			<headers formats="Advanced JMX,Advanced Agent,Advanced VT Agent">
 				<system_physical_used_memory         header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/system-physical-used-memory.xml"/>
 				<system_physical_used_memory_percent header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/system-physical-used-memory-percent.xml"/>
 				<computed_process_memory     header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/computed-process-memory.xml"/>

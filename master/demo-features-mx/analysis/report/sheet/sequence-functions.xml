@@ -6,7 +6,7 @@
 			<description>Displays the demo features on a Jeyzer time sequence, focusing on functions and headers.</description>
 		
 			<!-- Optional -->
-			<headers formats="Advanced JMX,Advanced Agent">
+			<headers formats="Advanced JMX,Advanced Agent,Advanced VT Agent">
 			
 				<!-- Headers -->
 				<capture_time          header_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/headers/capture-time.xml"/>

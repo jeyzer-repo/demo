@@ -16,7 +16,7 @@
 		<!-- process card sheet will be displayed only if the process card file is available -->
 		<sheet sheet_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/sheet/process-card/process-card.xml"/>
 	
-		<sheet sheet_config_file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/analysis/report/sheet/sequence-virtual-threads.xml"/>
+		<sheet sheet_config_file="${JEYZER_ANALYZER_CONFIG_DIR}/report/sheet/sequence/sequence-virtual-threads.xml"/>
 	
 		<sheet sheet_config_file="${JEYZER_DEMO_MASTER_PROFILES_DIR}/${JEYZER_TARGET_PROFILE}/analysis/report/sheet/monitoring-all-alerts-with-graph.xml"/>
 		

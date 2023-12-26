@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-		<sheet type="sequence" name="CPU" link_type="Cpu" formats="Advanced JMX,Advanced Agent">
+		<sheet type="sequence" name="CPU" link_type="Cpu" formats="Advanced JMX,Advanced Agent,Advanced VT Agent,Advanced VT Agent">
 
 			<!-- Optional -->
 			<headers formats="Advanced JMX,Advanced Agent">

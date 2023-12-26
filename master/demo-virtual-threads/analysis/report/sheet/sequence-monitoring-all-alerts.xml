@@ -17,7 +17,7 @@
 			</stickers>
 		
 			<!-- Optional -->
-			<headers formats="Advanced JMX,Advanced Agent">
+			<headers formats="Advanced JMX,Advanced Agent,Advanced VT Agent">
 			
 				<!-- Functions : average, min, max, cumulative, variance, standard_deviation -->
 				<math_functions>
