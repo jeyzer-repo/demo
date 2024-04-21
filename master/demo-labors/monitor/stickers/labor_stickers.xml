@@ -70,6 +70,8 @@
 	<sticker name="operation_parallel_contention"         type="property card" property="demo.job.operation_parallel_contention"        pattern="true"/>
 	<sticker name="contention_type_parallel_contention"   type="property card" property="demo.job.contention_type_parallel_contention"  pattern="true"/>
 	<sticker name="function_and_operation_parallel_contention" type="property card" property="demo.job.function_and_operation_parallel_contention"  pattern="true"/>
+
+	<sticker name="contention_type_and_high_process_cpu" type="property card" property="demo.job.contention_type_and_high_process_cpu"  pattern="true"/>
 	
 	<sticker name="cpu_runnable_vs_cpu_capacity"   type="property card" property="demo.job.cpu_runnable_vs_cpu_capacity"  pattern="true"/>
 	

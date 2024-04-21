@@ -775,7 +775,20 @@
 				           message="Important demo executor has been detected."/>
 			</thresholds>
 		</rule>
-		
+
+		<!--  If the process CPU percentage is higher than [process_cpu_percent] respectively and the [contention_type] is detected, generate event. -->
+		<rule name="Contention type and high process CPU" extra_info="Consuming regular expression" stickers="contention_type_and_high_process_cpu"  ref="LAB-RUN-064">
+			<thresholds>
+				<threshold type="session custom"
+						   count="1"
+						   process_cpu_percent="0"
+						   contention_type="Regular expression"
+				           level="INFO" 
+				           sub_level="9"
+				           message="Regular expression is detected and process consumes more than X% of CPU.&#10;You may check if any regular expression may not be the root cause of this CPU activity."/>
+			</thresholds>
+		</rule>
+
 	</rules>
 
 </monitor>
